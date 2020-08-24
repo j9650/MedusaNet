@@ -12,13 +12,8 @@ import random
 from sklearn import metrics
 from tensorflow.keras.layers import Input, Concatenate, Conv3D, Flatten, Dense, Dropout, Add, AveragePooling3D, MaxPooling3D
 
-#import read_tf_input
 import dataset_from_file as dff
 
-#mnist = tf.keras.datasets.mnist
-
-#(x_train, y_train), (x_test, y_test) = mnist.load_data()
-#x_train, x_test = x_train / 255.0, x_test / 255.0
 
 def eval_atom(result, label):
     true_pos = 0
@@ -65,7 +60,6 @@ def eval_atom(result, label):
             else:
                 po_false = po_false + 1
                 total_rmsd_pf += rmsd
-            # print(result[i,1], rmsd)
         else:
             tot_rmsd_n += rmsd
             if result[i,0] > 0.5:
@@ -104,17 +98,9 @@ def eval_atom(result, label):
     print("tot_rmsd_n: ", tot_rmsd_n / (ne_true + ne_false))
     print("total_rmsd_nf: ", total_rmsd_nf / ne_false)
 
-    #m = tf.keras.metrics.BinaryAccuracy()
-    #m.update_state(tf.convert_to_tensor(result[:,1], dtype=tf.float32), tf.convert_to_tensor(label[:,1], dtype=tf.float32))
-    #auc_tensor = tf.metrics.auc(label[:,1], result[:,1], num_thresholds=200)
-    #print('auc: ', auc_tensor[0])
-    #print('Final result: ', tf.shape(m.result()))
-
-    #print(result[:,1])    
 
     fpr, tpr, thresholds = metrics.roc_curve(label[:,1], result[:,1], pos_label=1)
     print('auc: ', metrics.auc(fpr, tpr))
-    #tf.enable_eager_execution()
 
     print('evaluate_wo_gt: ')
     print('acc: ', float(po_true+ne_true)/float(po_true+po_false+ne_true+ne_false))
@@ -129,10 +115,6 @@ def eval_atom(result, label):
     fpr, tpr, thresholds = metrics.roc_curve(label_wo, result_wo, pos_label=1)
     print('auc: ', metrics.auc(fpr, tpr))
 
-    # return gt_true, gt_false
-    #zipped = zip(label[:,1], result[:,1])
-    #zipped_tmp = sorted(zipped, key=lambda x: x[1])
-    #succ = 0
 
 
 
@@ -336,9 +318,7 @@ def train_and_infer(resolution, data_dir, model_dir, true_th=3, false_th=3, sw="
     if resolution == 40:
         model = get_model_40([resolution, resolution, resolution, x_train.shape[4]], 1)
     
-    #model = get_model([resolution, resolution, resolution, x_train.shape[4]], 1)
 
-    #model = tf.keras.models.load_model('/home/mdl/hzj5142/AtomNet/AtomNet/tmp_data/pdbbind/model_withenergy_res_srand_5conv_50epoch_th2_20_p4_iter15.h5')
 
 
     sgd = tf.keras.optimizers.SGD(lr=0.001, decay=1e-6, momentum=0.9)
@@ -347,47 +327,28 @@ def train_and_infer(resolution, data_dir, model_dir, true_th=3, false_th=3, sw="
     losss = 'binary_crossentropy'
     #losss = 'mean_squared_error'
     adam = tf.keras.optimizers.Adam(lr=0.001, decay=5e-5)
-    #metric = tf.keras.metrics.mean_squared_error
-    #metric = tf.keras.metrics.mean_squared_error
     
     #2
     model.compile(optimizer=sgd,
                   loss=losss,
                   metrics=[metric])
     
-    #class_weight = {0: 1.0, 1:3.42}
-    #class_weight = {0: 1.0, 1:12.04}
-    class_weight = {0: 1.0, 1:4.1}
-    #model = tf.keras.models.load_model("/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/AtomNet/tmp_data/pdbbind/model_withenergy_res_srand_5conv_50epoch_40_iter22.h5")
-    #cp_callback = tf.keras.callbacks.ModelCheckpoint('/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/AtomNet/checkpoint.ckpt', 
-    #                                             save_weights_only=True,
-    #                                             verbose=1)
+    class_weight = {0: 1.0, 1: 1.0}
 
     train_dataset_num = int(len(os.listdir(data_dir+'/train')) / 2)
-    ## th=2
-    #ground_truth = 3100.0
-    #negative_pose = 222383.0
-    #positive_pose = 8443.0
-    ## th=3
-    #ground_truth = 3100.0
-    #negative_pose = 213338.0
-    #positive_pose = 17488.0
+
     ground_truth = 0.0
     negative_pose = 0.0
     positive_pose = 0.0
     total_pose = 0.0
     
     for j in range(train_dataset_num):
-        # x_train, y_train, tot = dff.read_data_from_file_easy_rmsd('/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/AtomNet/tmp_data/pdbbind_rmsd/train/'+str(j), x_train, y_train)
         x_train, y_train, tot = dff.read_data_from_file_withenergy(data_dir+'/train/'+str(j), x_train, y_train, true_th=true_th, false_th=false_th)
         gt, n_p, p_p = get_sample_weight(y_train, tot, false_th)
         ground_truth += gt
         negative_pose += n_p
         positive_pose += p_p
         total_pose += tot
-        #weight = get_weight(y_train, tot)
-        #sum_weight = weight * tot
-        #sum_tot = sum_tot + tot
 
     weight_gt = negative_pose / 2 / ground_truth
     weight_pp = negative_pose / 2 / positive_pose
@@ -396,9 +357,6 @@ def train_and_infer(resolution, data_dir, model_dir, true_th=3, false_th=3, sw="
     print('positive_pose: ', positive_pose)
     weight = negative_pose / (ground_truth + positive_pose)
 
-    #weight_np = 0.5 * (negative_pose + ground_truth + positive_pose) / negative_pose
-    #weight = 0.55 * (negative_pose + ground_truth + positive_pose) / (ground_truth + positive_pose)
-    #print('class_weight: ', weight_np, weight)
     weight_np = 1.0
     weight = (negative_pose) / (ground_truth + positive_pose)
     class_weight = {0: weight_np, 1: weight}
@@ -418,22 +376,9 @@ def train_and_infer(resolution, data_dir, model_dir, true_th=3, false_th=3, sw="
     for i in range(0, 20):
         gt_tot = 0
         random.shuffle(random_list)
-        # for j in range(train_dataset_num):
         for j in random_list:
-            # x_train, y_train, tot = dff.read_data_from_file_easy_rmsd('/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/AtomNet/tmp_data/pdbbind_rmsd/train/'+str(j), x_train, y_train)
             x_train, y_train, tot = dff.read_data_from_file_withenergy(data_dir+'/train/'+str(j), x_train, y_train, true_th=true_th, false_th=false_th)
             # x_train, y_train, tot, gt_tot = dff.read_data_from_file_withenergy_limitgt(data_dir+'/train/'+str(j), x_train, y_train, true_th=true_th, false_th=false_th, gt_tot = gt_tot)
-#            for iiiii in range(tot):
-#                if y_train[iiiii, 2] == 0:
-#                    sample_weight[iiiii] = weight_gt
-#                    y_train[iiiii, 3] = 0
-#                elif y_train[iiiii, 2] <= false_th:
-#                    sample_weight[iiiii] = weight_pp
-#                else:
-#                    sample_weight[iiiii] = 1
-
-            # weight = get_weight(y_train, tot)
-#            y_train = np.true_divide(y_train, 10.0)
 
             if use_sample_weight:
                 sample_weight = generate_sample_weight(sample_weight, y_train, tot, weight, false_th)
@@ -452,27 +397,17 @@ def train_and_infer(resolution, data_dir, model_dir, true_th=3, false_th=3, sw="
             result[cc:cc+tot,:] = model.predict([x_test[:tot,:,:,:,:], y_test[cc:cc+tot,3]], batch_size=batch_size)
             cc = cc + tot
 
-        # result = model.predict([x_test[:cc,:,:,:,:], y_test[:cc,3]], batch_size=batch_size)
         print(result.shape, y_test.shape)
         eval_atom(result[:cc,:], y_test[:cc,:])
-        # eval_rmsd(result.reshape(y_test[:cc].shape), y_test[:cc])
-        # model.evaluate([x_test[:cc,:,:,:,:], y_test[:cc,3]], y_test[:cc,:2], batch_size=batch_size, verbose=2)
         
         dir_model = model_dir+'_iter'+str(i)+'.h5'
         tf.keras.models.save_model(model, dir_model)
 
 
-    # result = model.predict(x_test, batch_size=batch_size)
     print(result.shape)
 
-    #eval_atom(result, y_test)
 
-    # tf.keras.models.save_model(model, "/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/AtomNet/tmp_data/pdbbind/model_rmsd_5conv_50epoch.h5")
-    # tf.keras.models.save_model(model, model_dir)
-    #model = tf.keras.models.load_model('/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/AtomNet/tmp_data/pdbbind/model.h5')
 
-    #x_test = np.zeros((5120, 20, 20, 20, 10))
-    #y_test = np.zeros((5120, 2))
 
 
 if __name__ == "__main__":
