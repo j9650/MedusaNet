@@ -86,7 +86,6 @@ def init_data(resolution, pdb_dir, rmsd_dir, data_dir, protein_list, start_iter,
 
     """
     protein_index = 0
-    #for seed in range(351, 701):
     for seed in range(start_iter, end_iter):
         print("seed: "+str(seed))
         protein_index = 0
@@ -103,11 +102,6 @@ def init_data(resolution, pdb_dir, rmsd_dir, data_dir, protein_list, start_iter,
             rmsds = all_rmsd[protein_index][seed-8].split()
             for st in f:
                 ss = st.split()
-                # if (ss[0] == 'REMARK') and (ss[1] == 'POSE:'):
-                #     if(flag_label == 0):
-                #         print(i,' ',global_tot)
-                #         flag_label = 1
-                #     global_tot = global_tot + 1
                 if (ss[0] == 'REMARK') and (ss[1] == 'E_total:'):
                     this_pose_energy = float(ss[2])
                 if (ss[0] == 'ENDMDL'):
@@ -128,22 +122,13 @@ def init_data(resolution, pdb_dir, rmsd_dir, data_dir, protein_list, start_iter,
                     tmp_label[tot, 3] = this_pose_energy
                     tot = tot + 1
     
-                    # if (tot >= tile_size):
-                    #     write_data_to_file_easy_rmsd(output_dir+"/"+str(file_counter), tmp_data, tmp_label)
-                    #     file_counter = file_counter + 1
-                    #     tot = 0
-                    #     tmp_data.fill(0)
-                    #     tmp_label.fill(0)
                     
                 if (ss[0] == 'ATOM'):
                     protein_l.append(st[:-1])
                 if (ss[0] == 'HETATM'):
                     ligand_l.append(st[:-1])
-                    # if (ss[-1] == 'H') and (not ss[-1] in H_type):
-                    #     H_type.append(ss[2])
 
             assert tot == len(rmsds)
-            # dff.write_data_to_file_easy_rmsd(data_path+"/"+str(seed), tmp_data[:tot,:,:,:,:], tmp_label[:tot,:])
             dff.write_data_to_file_easy_rmsd(data_path+"/"+str(protein), tmp_data[:tot,:,:,:,:], tmp_label[:tot,:])
             tmp_data.fill(0)
             tmp_label.fill(0)
@@ -170,11 +155,7 @@ def train_and_infer(resolution, pdb_dir, rmsd_dir, data_dir, model_dir, protein_
     '''
     init model and test data
     '''
-    #print('before read model')
     model = tf.keras.models.load_model(model_dir)
-    #model = keras.models.load_model(model_dir)
-    #print('after read model')
-    #print(proteins)
 
     energy_mode = 1
     if type(model.input_spec) == list:
@@ -185,29 +166,8 @@ def train_and_infer(resolution, pdb_dir, rmsd_dir, data_dir, model_dir, protein_
 
 
 
-    '''
-    for seed in range(8, 700):
-        flag = 0
-        filename = pdb_dir+str(seed)+'67/'
-        if os.path.exists(filename):
-            mylist = os.listdir(filename)
-            
-
-            for protein in proteins:
-                if (protein+'.pdb' not in mylist) or (os.stat(filename+protein+'.pdb').st_size<=0) :
-                    flag = 1
-
-            if flag==1:
-                print(filename)
-                print('not finish')
-            # else:
-                # print('finish')
-        else:
-            print(filename)
-            print('dir not exist')
 
     
-    '''
     fix_th = convert_th
     success_protein = 0
     success_protein2 = 0
@@ -242,9 +202,6 @@ def train_and_infer(resolution, pdb_dir, rmsd_dir, data_dir, model_dir, protein_
             #print(seed)
             rmsd_line = rmsd_file.readline()
             rmsds = rmsd_line.split()
-            # for rmsd in rmsds:
-            # 	if float(rmsd) <= 3:
-            # 		found_good_pose = found_good_pose + 1
 
             data_path = data_dir + '/' + protein + '/' + str(seed)
             if energy_mode == 1:
@@ -301,11 +258,9 @@ def train_and_infer(resolution, pdb_dir, rmsd_dir, data_dir, model_dir, protein_
         # break
 
     assert len(stop_attemp_list) == len(proteins)
-    #assert len(all_selected_rmsds) == len(proteins)
     print(len(all_selected_rmsds))
     print(sum(all_selected_rmsds) / len(all_selected_rmsds))
     print(str(success_protein)+' proteins success!')
-    #print('average attemps: '+str(geo_mean(stop_attemp_list)))
     print('average attemps: '+str(avg_mean(stop_attemp_list)))
     print(str(success_protein2)+' proteins success!')
 
@@ -330,7 +285,7 @@ if __name__ == "__main__":
     end_pdb = int(sys.argv[13])
 
     if mode == 1:
-        #generate the data for iter 8 - 1050
+        #generate the data for iter: start_iter - end_iter
         init_data(resolution, pdb_dir, rmsd_dir, data_dir, protein_list, start_iter, end_iter, start_pdb, end_pdb)
 
     if mode == 2:
