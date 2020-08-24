@@ -341,10 +341,8 @@ def train_and_infer(resolution, data_dir, model_dir, true_th=3, false_th=3, sw="
     #model = tf.keras.models.load_model('/home/mdl/hzj5142/AtomNet/AtomNet/tmp_data/pdbbind/model_withenergy_res_srand_5conv_50epoch_th2_20_p4_iter15.h5')
 
 
-    print("kill ni ma bi!")
     sgd = tf.keras.optimizers.SGD(lr=0.001, decay=1e-6, momentum=0.9)
     metric = tf.keras.metrics.BinaryAccuracy(threshold=0.5)
-    print("kill ni ma bi!")
     #losss = 'sparse_categorical_crossentropy'
     losss = 'binary_crossentropy'
     #losss = 'mean_squared_error'
@@ -357,7 +355,6 @@ def train_and_infer(resolution, data_dir, model_dir, true_th=3, false_th=3, sw="
                   loss=losss,
                   metrics=[metric])
     
-    print("kill ni ma bi!")
     #class_weight = {0: 1.0, 1:3.42}
     #class_weight = {0: 1.0, 1:12.04}
     class_weight = {0: 1.0, 1:4.1}
@@ -464,7 +461,6 @@ def train_and_infer(resolution, data_dir, model_dir, true_th=3, false_th=3, sw="
         dir_model = model_dir+'_iter'+str(i)+'.h5'
         tf.keras.models.save_model(model, dir_model)
 
-    print("kill ni ma bi!")
 
     # result = model.predict(x_test, batch_size=batch_size)
     print(result.shape)
@@ -474,7 +470,6 @@ def train_and_infer(resolution, data_dir, model_dir, true_th=3, false_th=3, sw="
     # tf.keras.models.save_model(model, "/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/AtomNet/tmp_data/pdbbind/model_rmsd_5conv_50epoch.h5")
     # tf.keras.models.save_model(model, model_dir)
     #model = tf.keras.models.load_model('/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/AtomNet/tmp_data/pdbbind/model.h5')
-    print("kill ni ma bi!")
 
     #x_test = np.zeros((5120, 20, 20, 20, 10))
     #y_test = np.zeros((5120, 2))
