@@ -1,0 +1,178 @@
+A.DMD Atom Type 
+#####################################################
+#FIELD: ATOM                                        #
+#FORMAT: ATOM DMD_TYPE MASS HDR IR                  #
+# We include the polar hydrogens.                   #
+# To avoid the over-fast frequency for A-H collision#
+# we make the mass of H the same as C. This is based#
+# on the observation that mass does not affect the  #
+# diffusion property.                               #
+#  --- fding@clemson.edu                            # 
+#####################################################
+ATOM	CA    		12.0
+ATOM	GLY_CA		12.0
+ATOM    ALA_CB		12.0
+ATOM    MET_CG		12.0
+ATOM    VAL_CG		12.0
+ATOM    LEU_CG		12.0
+ATOM    ILE_CG		12.0
+ATOM    PHE_CG		12.0
+ATOM    TYR_CG		12.0
+ATOM    TRP_CG		12.0
+ATOM    PRO_CG		12.0
+ATOM    HIS_CG		12.0
+ATOM    THR_CG		12.0
+ATOM    SER_CG		12.0
+ATOM    LYS_CG		12.0
+ATOM    ARG_CG		12.0
+ATOM    ASP_CG		12.0
+ATOM    ASN_CG		12.0
+ATOM    GLU_CG		12.0
+ATOM    GLN_CG		12.0
+ATOM    CYS_CG		12.0
+
+B.Residue Constraint 
+###############################################################################################
+#FORMAT                                                                                       #
+#FIELD:	ATOM                                                                                  #  
+#FORMAT: ATOM PDB_TYPE DMD_TYPE                                                               #
+#                                                                                             #
+#FIELD: BOND,ANGLE                                                                            #
+#FORMAT: BOND/ANGLE PDB_TYPE_1 PDB_TYPE_2 AVE STD/AVE                                         #
+#                                                                                             #
+#FIELD: DIHEDRAL1                                                                             #
+#FORMAT: DIHEDRAL1 PDB_TYPE_1 PDB_TYPE_2 PDB_TYPE_3 PDB_TYPE_4 D_min, D_0, D_1, D_2, D_max    #
+#                                                                                             #
+#FIELD: DIHDERAL2                                                                             #
+#FORMAT: DIHEDRAL2 PDB_TYPE_1 PDB_TYPE_2 PDB_TYPE_3 PDB_TYPE_4 D_min, D_MAX                   #
+###############################################################################################
+RESIDUE ALA 
+   ATOM CA     CA        
+   ATOM	CB     ALA_CB
+CONSTR 	CA     CB     1.49  1.57
+
+RESIDUE VAL 
+   ATOM CA     CA        
+   ATOM	CG1    VAL_CG
+CONSTR 	CA     CG1    2.14  2.24
+
+RESIDUE LEU 
+   ATOM CA     CA        
+   ATOM	CG     LEU_CG
+CONSTR 	CA     CG     2.98  3.14
+
+RESIDUE ILE 
+   ATOM CA     CA        
+   ATOM	CG1    ILE_CG
+CONSTR 	CA     CG1    2.20  2.40    -1.00   2.60    2.00    2.78
+
+RESIDUE MET 
+   ATOM CA     CA        
+   ATOM	CG     MET_CG
+CONSTR 	CA     CG     2.90  3.30    -1.00   3.60    2.00    3.80
+
+RESIDUE CYS 
+   ATOM CA     CA        
+   ATOM	SG     CYS_CG
+CONSTR 	CA     SG     2.70  2.90
+
+RESIDUE HIS 
+   ATOM CA     CA        
+   ATOM	CG     HIS_CG
+CONSTR 	CA     CG     3.45  3.65
+
+RESIDUE PHE 
+   ATOM CA     CA        
+   ATOM	CG     PHE_CG
+CONSTR 	CA     CG     3.70  3.90
+
+RESIDUE TYR 
+   ATOM CA     CA        
+   ATOM	CG     TYR_CG
+CONSTR 	CA     CG     4.05  4.28
+
+RESIDUE TRP 
+   ATOM CA     CA        
+   ATOM	CG     TRP_CG
+CONSTR 	CA     CG     3.95  4.30    -2.00   4.45    1.00    4.60
+
+RESIDUE SER 
+   ATOM CA     CA        
+   ATOM	OG     SER_CG
+CONSTR	CA     OG     2.33  2.53
+
+RESIDUE THR 
+   ATOM CA     CA        
+   ATOM	OG1    THR_CG
+CONSTR	CA     OG1    2.06  2.25
+
+RESIDUE ASN 
+   ATOM CA     CA        
+   ATOM	CG     ASN_CG
+CONSTR	CA     CG     2.80  3.00
+
+RESIDUE GLN 
+   ATOM CA     CA        
+   ATOM	CG     GLN_CG
+CONSTR	CA     CG     2.95  3.26    -1.40   3.75    2.00    3.90
+
+RESIDUE LYS 
+   ATOM CA     CA        
+   ATOM	CG     LYS_CG
+CONSTR	CA     CG     3.70  3.90    -1.50   4.08    1.50    4.25    -1.50   4.35    1.50    4.50
+
+RESIDUE ARG 
+   ATOM CA     CA        
+   ATOM	CG     ARG_CG
+CONSTR	CA     CG     4.10  4.95    -1.20   5.12    1.20    5.29
+
+RESIDUE ASP 
+   ATOM CA     CA        
+   ATOM	CG     ASP_CG
+CONSTR	CA     CG     2.80  3.00
+
+RESIDUE GLU 
+   ATOM CA     CA        
+   ATOM	CG     GLU_CG
+CONSTR	CA     CG     3.00  3.20    -2.00   3.73    2.00    3.93
+
+RESIDUE GLY 
+   ATOM CA     GLY_CA        
+
+RESIDUE PRO 
+   ATOM CA     CA        
+   ATOM	CG     PRO_CG
+CONSTR	CA     CG     2.20  2.36
+
+C.Peptide Constraints
+#####################################
+# inter residue BOND constraints
+# Mostly, the type-dependent constraints 
+# FORMAT: BOND/DIHE DMD_TYPE1 DMD_TYPE2 AVE_D STD/AVE
+# NOTE HERE, DIHE has a different format as above
+# also The type is DMD_TYPE
+#####################################
+
+BOND  CA     CA      3.830   0.015
+BOND  CA     CA      2.930   0.020
+
+
+D.Constraints
+############################################
+# inter residue DIHE constraints
+# Mostly, the type-indepent constraints, Implemented in DMD as "N.CONSTRAINTS"
+# FORMAT: 
+# BOND  -PDB_TYPE1 PDB_TYPE2 AVE_D STD/AVE
+# DIHE1 -PDB_TYPE1 PDB_TYPE2 D0 D1 D2 D3 D4
+# NOTE HERE: the "-" sign in front of PDB_TYPE1 indicated the PDB_TYPE1 in the previous atoms
+############################################
+
+E.INTER_CHAIN
+########################################
+#Explicit definition of INTER-RESIDUE CONSTRAINTS/CONNECTIONS
+#FOR XDMD
+#FORMAT: RESIDUE/RNA/DNA_i RESIDUE/RNA/DNA_j
+#######################################
+RESIDUE_0 *.CA RESIDUE_1 *.CA	  3.773 3.887
+RESIDUE_0 *.CA RESIDUE_1 PRO.CA	  2.871 2.989 -2.00 3.773 4.00 3.887
+RESIDUE_0 *.CA RESIDUE_1 PRO.CG	  2.820 3.070 -2.00 3.690 4.00 3.940

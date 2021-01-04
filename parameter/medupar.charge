@@ -1,0 +1,21 @@
+! charged interaction
+! We only consider highly charged atom types such as carboxyl, NH3, and phosphate. 
+! Only the terminal atoms are considered. For example, P in PO4 groups are ignored. 
+!-------------------salt bridge energy parameters------------------------
+!		  Charge (e)
+!                 
+CHARGE  NCK     1  !! CEDU_NCK  ->NH3 
+CHARGE  NCR   0.5  !! CEDU_NCR  ->NC2 
+CHARGE  OC   -0.5  !! CEDU_OC   ->OC  
+!----------small molecules------------
+CHARGE  _OC      -0.5 !! CEDU_OC   ->OC
+CHARGE  _OPO     -0.5 !! 
+CHARGE  _OS      -0.5
+CHARGE  _NC2      0.5 !! CEDU_NCR  ->NC2
+CHARGE  _NH3        1 !! CEDU_NCK  ->NH3
+CHARGE  _NXSO    -0.5
+CHARGE  _NXPO    -0.5
+CHARGE  _NXXSO   -0.5
+CHARGE  _NXXPO   -0.5
+CHARGE  _Cu         1 !! ???
+CHARGE  _Zn         1 !! ???

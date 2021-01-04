@@ -1,0 +1,106 @@
+!set echo=true end
+{* nonbonding parameter section *}
+{* ============================ *}
+!                  eps     sigma    eps(1:4) sigma(1:4)
+!                  (kcal/mol) (A)    (kcal/mol) (A)
+!                 ---------------------------------------
+NONB  (chem h)    0.00000  0.00000  0.00000  0.00000 !! CEDU_H    ->hydr
+NONB  (chem hc)   0.00000  0.00000  0.00000  0.00000 !! CEDU_HC   ->hydr
+NONB  (chem cr)   0.12000  3.74177  0.10000  3.38542 !! CEDU_CR   ->C  
+NONB  (chem crnp) 0.12000  3.74177  0.10000  3.38542 !! CEDU_CRNP ->CR(C)
+NONB  (chem ca)   0.02620  4.43668  0.10000  3.38542 !! CEDU_CA   ->C
+NONB  (chem ca1)  0.04860  4.21395  0.10000  3.38542 !! CEDU_CA1  ->CH1E
+NONB  (chem ca1p) 0.04860  4.21395  0.10000  3.38542 !! CEDU_CA1P ->CH1E
+NONB  (chem ca2)  0.11420  3.98232  0.10000  3.38542 !! CEDU_CA2  ->CH2E
+NONB  (chem ca2p) 0.11420  3.98232  0.10000  3.38542 !! CEDU_CA2P ->CH2E
+NONB  (chem ca3)  0.18110  3.85759  0.10000  3.38542 !! CEDU_CA3  ->CH3E
+NONB  (chem cm1)  0.12000  3.74177  0.10000  3.38542 !! CEDU_CM1  ->CR1E
+NONB  (chem cm1p) 0.12000  3.74177  0.10000  3.38542 !! CEDU_CM1P ->CR1E
+NONB  (chem nck)  0.23840  2.85088  0.23840  2.85088 !! CEDU_NCK  ->NH3
+NONB  (chem ncr)  0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem nz)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NZ   ->NH1
+NONB  (chem nr)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NR   ->NR
+NONB  (chem nznp) 0.23840  2.85088  0.23840  2.85088 !! CEDU_NZNP ->N  
+NONB  (chem nznq) 0.23840  2.85088  0.23840  2.85088 !! CEDU_NZNQ ->NH2
+NONB  (chem oc)   0.21000  2.85088  0.21000  2.85088 !! CEDU_OC   ->OC 
+NONB  (chem oz)   0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem ow)   0.15910  2.85088  0.15910  2.85088 !! CEDU_OW   ->OT 
+NONB  (chem ozh)  0.15910  2.85088  0.15910  2.85088 !! CEDU_OZH  ->OH1; ser,thr,tyr
+NONB  (chem sg)   0.04300  3.36760  0.04300  3.36760 !! CEDU_SG   ->SH1E
+NONB  (chem sgnp) 0.04300  3.36760  0.04300  3.36760 !! CEDU_SGNP ->S 
+! parameters for small molecules (taken from TAFF) - not united atoms:       
+nonb  (chem N3)   0.095    3.1      0.095    3.1     !! sp3 nitrogen                                          NITROGEN
+nonb  (chem N2)   0.095    3.1      0.095    3.1     !! sp2 nitrogen
+nonb  (chem N1)   0.095    3.1      0.095    3.1     !! sp nitrogen
+nonb  (chem Nar)  0.095    3.1      0.095    3.1     !! aromatic nitrogen
+nonb  (chem Npl3) 0.095    3.1      0.095    3.1     !! trigonal planar nitrogen
+nonb  (chem Nam)  0.095    3.1      0.095    3.1     !! amide nitrogen
+nonb  (chem N4)   0.095    3.1      0.095    3.1     !! sp3 positively charged nitrogen
+nonb  (chem O3)   0.116    3.04     0.116    3.04    !! sp3 oxygen                                          OXYGEN
+nonb  (chem O2)   0.116    3.04     0.116    3.04    !! sp2 oxygen
+nonb  (chem Oco2) 0.116    3.04     0.116    3.04    !! oxygen in carboxylate or phosphate group
+nonb  (chem S3)   0.314    3.6      0.314    3.6     !! sp3 sulphur                                          SULPHUR
+nonb  (chem S2)   0.314    3.6      0.314    3.6     !! sp2 sulphur       
+nonb  (chem So)   0.314    3.4      0.314    3.6     !! sulfoxide sulfur
+nonb  (chem So2)  0.314    3.4      0.314    3.6     !! sulfone sulfur
+nonb  (chem P3)   0.314    3.6      0.314    3.6     !! sp3 phosphorus                                          PHOSPHORUS
+nonb  (chem H)    0.042    3.0      0.042    3.0     !! hydrogen                                          HYDROGEN
+nonb  (chem F)    0.109    2.94     0.109    2.94    !! fluorine                                          HALOGENS
+nonb  (chem Cl)   0.314    3.5      0.314    3.5     !! chlorine
+nonb  (chem Br)   0.434    3.7      0.434    3.7     !! bromine
+nonb  (chem I)    0.623    3.96     0.623    3.96    !! iodine
+nonb  (chem Li)   0.4      2.4      0.4      2.4     !! lithium                                           METALS
+nonb  (chem Na)   0.4      2.4      0.4      2.4     !! sodium                            
+nonb  (chem K)    0.4      2.4      0.4      2.4     !! potassium
+nonb  (chem Mg)   0.1      1.922    0.1      1.922   !! magnesium
+nonb  (chem Ca)   0.6      2.4      0.6      2.4     !! calcium
+nonb  (chem Al)   0.042    2.4      0.042    2.4     !! aluminium
+nonb  (chem Si)   0.042    4.2      0.042    4.2     !! silicon
+nonb  (chem Sn)   0.1      4.918    0.1      4.918   !! tin
+nonb  (chem Se)   0.1      4.248    0.1      4.918   !! selenium
+nonb  (chem Croh) 0.1      3.8      0.1      3.8     !! hydroxy chromium                                   TRANSITION METALS
+nonb  (chem Crth) 0.1      3.8      0.1      3.8     !! chromium
+nonb  (chem Mo)   0.1      3.688    0.1      3.688   !! molybdenum
+nonb  (chem Mn)   0.1      3.8      0.1      3.8     !! manganese
+nonb  (chem Fe)   0.1      3.688    0.1      3.688   !! iron
+nonb  (chem Cooh) 0.1      3.464    0.1      3.464   !! hydroxy cobalt
+nonb  (chem Cu)   0.1      3.352    0.1      3.352   !! copper
+nonb  (chem Zn)   0.1      3.352    0.1      3.352   !! zinc
+nonb  (chem Hspc) 0        2.016    0        2.016   !! hydrogen in SPC water model                            WATER MODELS
+nonb  (chem Ospc) 0.1554   3.5532   0.1554   3.5532  !! oxygen in SPC water model
+nonb  (chem Ht3p) 0        2.016    0        2.016   !! hydrogen in TIP3P water model
+nonb  (chem Ot3p) 0.15207  3.5365   0.15207  3.5365  !! oxygen in TIP3P water model
+nonb  (chem LP)   1e-05    2e-05    1e-05    2e-05   !! lone pair                                          SPECIAL SYMBOLS
+nonb  (chem Du)   0        0        0        0       !! dummy
+nonb  (chem DuC)  0        0        0        0       !! dummy with the weight of carbon
+nonb  (chem ANY)  0.107    3.4      0.107    3.4     !! any atom
+nonb  (chem HEV)  0.107    3.4      0.107    3.4     !! heavy (non H) atom
+nonb  (chem HET)  0.095    3.1      0.095    3.1     !! heteroatom (N, O, S, P)
+nonb  (chem HAL)  0.314    3.5      0.314    3.5     !! halogen
+!end
+!		EEF1_VOL, EEF1_DG_REF, EEF1_DG_FREE, EEF1_LAMBDA, CHARMM_RADIUS
+!                  A^3    kcal/mol  kcal/mol  A        A
+SOLV  (chem h)    0.00     0.00     0.00     0.00     0.000 !! CEDU_H    ->hydrogen is not included
+SOLV  (chem hc)   0.00     0.00     0.00     0.00     0.000 !! CEDU_HC   ->hydrogen is not included
+SOLV  (chem cr)   14.70    0.00     0.00     3.50     2.100 !! CEDU_CR   ->C   
+SOLV  (chem crnp) 8.30     -0.89    -1.40    3.50     2.100 !! CEDU_CRNP ->CR  
+SOLV  (chem ca)   14.70    0.00     0.00     3.50     2.490 !! CEDU_CA   ->CH1E  
+SOLV  (chem ca1)  23.70    -0.187   -0.25    3.50     2.365 !! CEDU_CA1  ->CH1E
+SOLV  (chem ca1p) 23.70    -0.187   -0.25    3.50     2.365 !! CEDU_CA1P ->CH1E
+SOLV  (chem ca2)  22.40    0.372    0.52     3.50     2.235 !! CEDU_CA2  ->CH2E
+SOLV  (chem ca2p) 22.40    0.372    0.52     3.50     2.235 !! CEDU_CA2P ->CH2E
+SOLV  (chem ca3)  30.00    1.089    1.50     3.50     2.165 !! CEDU_CA3  ->CH3E
+SOLV  (chem cm1)  18.40    0.057    0.08     3.50     2.100 !! CEDU_CM1  ->CR1E
+SOLV  (chem cm1p) 18.40    0.057    0.08     3.50     2.100 !! CEDU_CM1P ->CR1E
+SOLV  (chem nck)  11.20    -20.000  -20.00   6.00     1.600 !! CEDU_NCK  ->NH3 
+SOLV  (chem ncr)  11.20    -10.000  -10.00   6.00     1.600 !! CEDU_NCR  ->NC2 
+SOLV  (chem nz)   4.40     -5.950   -8.90    3.50     1.600 !! CEDU_NZ   ->NH1 
+SOLV  (chem nr)   4.40     -3.820   -4.00    3.50     1.600 !! CEDU_NR   ->NR 
+SOLV  (chem nznp) 0.00     -1.000   -1.55    3.50     1.600 !! CEDU_NZNP ->N   
+SOLV  (chem nznq) 11.20    -5.450   -7.80    3.50     1.600 !! CEDU_NZNQ ->NH2 
+SOLV  (chem oc)   10.80    -10.000  -10.00   6.00     1.600 !! CEDU_OC   ->OC  
+SOLV  (chem oz)   10.80    -5.330   -5.85    3.50     1.600 !! CEDU_OZ   ->O   
+SOLV  (chem ow)   10.80    -5.330   -5.85    3.50     1.600 !! CEDU_OW   ->OT   
+SOLV  (chem ozh)  10.80    -5.920   -6.70    3.50     1.600 !! CEDU_OZH  ->OH1 
+SOLV  (chem sg)   21.40    -2.050   -2.70    3.50     1.890 !! CEDU_SG   ->SH1E
+SOLV  (chem sgnp) 14.70    -3.240   -4.10    3.50     1.890 !! CEDU_SGNP ->S   

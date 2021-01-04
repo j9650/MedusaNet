@@ -1,0 +1,269 @@
+!set echo=true end
+{* nonbonding parameter section *}
+{* ============================ *}
+!For simplicity, SOLV and NONB entries for each "ATOM TYPE" much appear together in EACH param file
+!-------------------VDW parameters caculated from CHARMM19 forcefield--------
+!                  eps     sigma    eps(1:4) sigma(1:4)
+!                  (kcal/mol) (A)    (kcal/mol) (A)
+!                 ---------------------------------------
+NONB  (chem h)    0.00000  0.00000  0.00000  0.00000 !! CEDU_H    ->hydr
+NONB  (chem hc)   0.00000  0.00000  0.00000  0.00000 !! CEDU_HC   ->hydr
+NONB  (chem cr)   0.12000  3.74177  0.10000  3.38542 !! CEDU_CR   ->C  
+NONB  (chem crnp) 0.12000  3.74177  0.10000  3.38542 !! CEDU_CRNP ->CR(C)
+NONB  (chem ca)   0.02620  4.43668  0.10000  3.38542 !! CEDU_CA   ->C
+NONB  (chem ca1)  0.04860  4.21395  0.10000  3.38542 !! CEDU_CA1  ->CH1E
+NONB  (chem ca1p) 0.04860  4.21395  0.10000  3.38542 !! CEDU_CA1P ->CH1E
+NONB  (chem ca2)  0.11420  3.98232  0.10000  3.38542 !! CEDU_CA2  ->CH2E
+NONB  (chem ca2p) 0.11420  3.98232  0.10000  3.38542 !! CEDU_CA2P ->CH2E
+NONB  (chem ca3)  0.18110  3.85759  0.10000  3.38542 !! CEDU_CA3  ->CH3E
+NONB  (chem cm1)  0.12000  3.74177  0.10000  3.38542 !! CEDU_CM1  ->CR1E
+NONB  (chem cm1p) 0.12000  3.74177  0.10000  3.38542 !! CEDU_CM1P ->CR1E
+NONB  (chem nck)  0.23840  2.85088  0.23840  2.85088 !! CEDU_NCK  ->NH3
+NONB  (chem ncr)  0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem ns)   0.23840  2.85088  0.23840  2.85088 !! CHARMM22
+NONB  (chem nz)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NZ   ->NH1
+NONB  (chem nr)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NR   ->NR
+NONB  (chem nznp) 0.23840  2.85088  0.23840  2.85088 !! CEDU_NZNP ->N  
+NONB  (chem nznq) 0.23840  2.85088  0.23840  2.85088 !! CEDU_NZNQ ->NH2
+NONB  (chem oc)   0.21000  2.85088  0.21000  2.85088 !! CEDU_OC   ->OC 
+NONB  (chem occ)  0.17000  2.85088  0.17000  2.85088 !! FROM AMBER
+NONB  (chem ocp)  0.17000  2.85088  0.17000  2.85088 !! FROM AMBER
+NONB  (chem oz)   0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem ow)   0.15910  2.85088  0.15910  2.85088 !! CEDU_OW   ->OT 
+NONB  (chem ozh)  0.15910  2.85088  0.15910  2.85088 !! CEDU_OZH  ->OH1; ser,thr,tyr
+NONB  (chem p)    0.20000  3.74177  0.20000  3.74177 !! FROM AMBER
+NONB  (chem sg)   0.04300  3.36760  0.04300  3.36760 !! CEDU_SG   ->SH1E
+NONB  (chem sgnp) 0.04300  3.36760  0.04300  3.36760 !! CEDU_SGNP ->S
+!-----small molecule types------------
+NONB  (chem _H)       0.00000  0.00000  0.00000  0.00000 !! CEDU_H    ->hydr
+NONB  (chem _C)       0.12000  3.74177  0.10000  3.38542 !! CEDU_CR   ->C  
+NONB  (chem _CR)      0.12000  3.74177  0.10000  3.38542 !! CEDU_CRNP ->CR(C) 
+NONB  (chem _CH1E)    0.04860  4.21395  0.10000  3.38542 !! CEDU_CA1  ->CH1E
+NONB  (chem _CH2E)    0.11420  3.98232  0.10000  3.38542 !! CEDU_CA2  ->CH2E
+NONB  (chem _CH3E)    0.18110  3.85759  0.10000  3.38542 !! CEDU_CA3  ->CH3E
+NONB  (chem _CR1E)    0.12000  3.74177  0.10000  3.38542 !! CEDU_CM1  ->CR1E
+NONB  (chem _OC)      0.21000  2.85088  0.21000  2.85088 !! CEDU_OC   ->OC 
+NONB  (chem _O)       0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem _OH1)     0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem _OPO)     0.21000  2.85088  0.21000  2.85088 !! CEDU_OC   ->OC 
+NONB  (chem _ONO)     0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem _ON)      0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem _ONH)     0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem _OS)      0.21000  2.85088  0.21000  2.85088 !! CEDU_OC   ->OC 
+NONB  (chem _OCC)     0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem _OCP)     0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem _OCN)     0.15910  2.85088  0.15910  2.85088 !! CEDU_OZ   ->O  
+NONB  (chem _NC)      0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NC2)     0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NH2)     0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NH3)     0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NNH2)    0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NS)      0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NH1)     0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NR)      0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NCCH2)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NCN)     0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NCNH)    0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NNN)     0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NXO)     0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NXSO)    0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NXPO)    0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _N)       0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NOOO)    0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NCCCH)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NXX-)    0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NXX-H)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NXXSO)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NXXPO)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _NXXXX)   0.23840  2.85088  0.23840  2.85088 !! CEDU_NCR  ->NC2
+NONB  (chem _SC)      0.04300  3.36760  0.04300  3.36760 !! CEDU_SG   ->SH1E
+NONB  (chem _SH1E)    0.04300  3.36760  0.04300  3.36760 !! CEDU_SG   ->SH1E
+NONB  (chem _S)       0.04300  3.36760  0.04300  3.36760 !! CEDU_SG   ->SH1E
+NONB  (chem _SXXX)    0.04300  3.36760  0.04300  3.36760 !! CEDU_SG   ->SH1E
+NONB  (chem _SOXX)    0.04300  3.36760  0.04300  3.36760 !! CEDU_SG   ->SH1E
+NONB  (chem _SXXXX)   0.04300  3.36760  0.04300  3.36760 !! CEDU_SG   ->SH1E
+NONB  (chem _PXXXX)   0.314    3.6      0.314    3.6     !! sp3 phosphorus  
+NONB  (chem _FX)      0.109    2.94     0.109    2.94    !! fluorine  
+NONB  (chem _ClX)     0.314    3.5      0.314    3.5     !! chlorine
+NONB  (chem _BrX)     0.434    3.7      0.434    3.7     !! bromine
+NONB  (chem _IX)      0.623    3.96     0.623    3.96    !! iodine
+NONB  (chem _Cu)      0.050    2.40	0.050	 2.40	 !! opls Cu2+
+NONB  (chem _Zn)      0.060    3.70	0.060	 3.70	 !! opls Zn2+
+NONB  (chem _Eh)      0.00000  0.00000  0.00000  0.00000 !! explicit hydrogen
+NONB  (chem _CGLIP)   0.400000  4.00000	0.40000	 4.00000 !! coarse-grained Lipid gas
+!-------------------EEF1 Solvation energy parameters------------------------
+!		EEF1_VOL, EEF1_DG_REF, EEF1_DG_FREE, EEF1_LAMBDA, CHARMM_RADIUS
+!                  A^3    kcal/mol  kcal/mol  A        A
+SOLV  (chem h)    0.00     0.00     0.00     0.00     0.000 !! CEDU_H    ->hydrogen is not included
+SOLV  (chem hc)   0.00     0.00     0.00     0.00     0.000 !! CEDU_HC   ->hydrogen is not included
+SOLV  (chem cr)   14.70    0.00     0.00     3.50     2.100 !! CEDU_CR   ->C   
+SOLV  (chem crnp) 8.30     -0.89    -1.40    3.50     2.100 !! CEDU_CRNP ->CR  
+SOLV  (chem ca)   14.70    0.00     0.00     3.50     2.490 !! CEDU_CA   ->CH1E  
+SOLV  (chem ca1)  23.70    -0.187   -0.25    3.50     2.365 !! CEDU_CA1  ->CH1E
+SOLV  (chem ca1p) 23.70    -0.187   -0.25    3.50     2.365 !! CEDU_CA1P ->CH1E
+SOLV  (chem ca2)  22.40    0.372    0.52     3.50     2.235 !! CEDU_CA2  ->CH2E
+SOLV  (chem ca2p) 22.40    0.372    0.52     3.50     2.235 !! CEDU_CA2P ->CH2E
+SOLV  (chem ca3)  30.00    1.089    1.50     3.50     2.165 !! CEDU_CA3  ->CH3E
+SOLV  (chem cm1)  18.40    0.057    0.08     3.50     2.100 !! CEDU_CM1  ->CR1E
+SOLV  (chem cm1p) 18.40    0.057    0.08     3.50     2.100 !! CEDU_CM1P ->CR1E
+SOLV  (chem nck)  11.20    -20.000  -20.00   6.00     1.600 !! CEDU_NCK  ->NH3 
+SOLV  (chem ncr)  11.20    -10.000  -10.00   6.00     1.600 !! CEDU_NCR  ->NC2 
+SOLV  (chem ns)   4.40     -3.820   -4.00    3.50     1.600 !! 
+SOLV  (chem nz)   4.40     -5.950   -8.90    3.50     1.600 !! CEDU_NZ   ->NH1 
+SOLV  (chem nr)   4.40     -3.820   -4.00    3.50     1.600 !! CEDU_NR   ->NR 
+SOLV  (chem nznp) 0.00     -1.000   -1.55    3.50     1.600 !! CEDU_NZNP ->N   
+SOLV  (chem nznq) 11.20    -5.450   -7.80    3.50     1.600 !! CEDU_NZNQ ->NH2 
+SOLV  (chem oc)   10.80    -10.000  -10.00   6.00     1.600 !! CEDU_OC   ->OC  
+SOLV  (chem occ)  4.400    -3.820   -4.00    3.50     1.600 !!
+SOLV  (chem ocp)  4.400    -3.820   -4.00    3.50     1.600 !!
+SOLV  (chem oz)   10.80    -5.330   -5.85    3.50     1.600 !! CEDU_OZ   ->O   
+SOLV  (chem ow)   10.80    -5.330   -5.85    3.50     1.600 !! CEDU_OW   ->OT   
+SOLV  (chem ozh)  10.80    -5.920   -6.70    3.50     1.600 !! CEDU_OZH  ->OH1 
+SOLV  (chem p)    15.00     0.00     0.00    3.50     2.100 !!
+SOLV  (chem sg)   21.40    -2.050   -2.70    3.50     1.890 !! CEDU_SG   ->SH1E
+SOLV  (chem sgnp) 14.70    -3.240   -4.10    3.50     1.890 !! CEDU_SGNP ->S   
+!----------small molecules------------
+SOLV  (chem _H)       0.00000  0.00000  0.00000  0.00000 !! CEDU_H    ->hydr
+SOLV  (chem _C)       14.70    0.00     0.00     3.50     2.100 !! CEDU_CR   ->C   
+SOLV  (chem _CR)      8.30     -0.89    -1.40    3.50     2.100 !! CEDU_CRNP ->CR  
+SOLV  (chem _CH1E)    14.70    0.00     0.00     3.50     2.490 !! CEDU_CA   ->CH1E
+SOLV  (chem _CH2E)    22.40    0.372    0.52     3.50     2.235 !! CEDU_CA2  ->CH2E
+SOLV  (chem _CH3E)    30.00    1.089    1.50     3.50     2.165 !! CEDU_CA3  ->CH3E
+SOLV  (chem _CR1E)    18.40    0.057    0.08     3.50     2.100 !! CEDU_CM1  ->CR1E
+SOLV  (chem _OC)      10.80    -10.000  -10.00   6.00     1.600 !! CEDU_OC   ->OC
+SOLV  (chem _O)       10.80    -5.330   -5.85    3.50     1.600 !! CEDU_OZ   ->O
+SOLV  (chem _OH1)     10.80    -5.920   -6.70    3.50     1.600 !! CEDU_OZH  ->OH1
+SOLV  (chem _OPO)     10.80    -10.000  -10.00   6.00     1.600 !! 
+SOLV  (chem _ONO)     10.80    -3       -3       3.50     1.600 !! 
+SOLV  (chem _ON)      10.80    -3.0000  -3.000   3.50     1.600
+SOLV  (chem _ONH)     10.80    -3.0000  -3.000   3.50     1.600
+SOLV  (chem _OS)      10.80    -10.000  -10.00   6.00     1.600
+SOLV  (chem _OCC)     4.467    -4.0000  -4.0     3.5      1.600
+SOLV  (chem _OCP)     4.467    -4.0000  -4.0     3.5      1.600
+SOLV  (chem _OCN)     4.467    -4.0000  -4.0     3.5      1.600
+SOLV  (chem _NC)      11.20    -5       -5       3.5      1.600 !! 
+SOLV  (chem _NC2)     11.20    -10.000  -10.00   6.00     1.600 !! CEDU_NCR  ->NC2
+SOLV  (chem _NH2)     11.20    -5.450   -7.80    3.50     1.600 !! CEDU_NZNQ ->NH2
+SOLV  (chem _NH3)     11.20    -20.000  -20.00   6.00     1.600 !! CEDU_NCK  ->NH3
+SOLV  (chem _NNH2)    11.20    -6.000   -6.00    3.5      1.600 !! 
+SOLV  (chem _NS)      4.40     -4       -4.00    3.50     1.600 !! 
+SOLV  (chem _NH1)     4.40     -5.950   -8.90    3.50     1.600 !! CEDU_NZ   ->NH1
+SOLV  (chem _NR)      4.40     -3.820   -4.00    3.50     1.600 !! CEDU_NR   ->NR
+SOLV  (chem _NCCH2)   4.40     -6.000   -6.00    3.50     1.600 
+SOLV  (chem _NCN)     4.40     -4       -4       3.5      1.6
+SOLV  (chem _NCNH)    4.4      -4       -4       3.5      1.6
+SOLV  (chem _NNN)     4.4      0        0        3.5      1.6
+SOLV  (chem _NXO)     4.4      -4       -4       3.5      1.6
+SOLV  (chem _NXSO)    4.4      -10      -10      6        1.6
+SOLV  (chem _NXPO)    4.4      -10      -10      6        1.6
+SOLV  (chem _N)       0        -1.000   -1.55    3.50     1.600 !! CEDU_NZNP ->N
+SOLV  (chem _NOOO)    0        0        0        3.5      1.6
+SOLV  (chem _NCCCH)   0        -5       -5       3.5      1.6
+SOLV  (chem _NXX-)    0        0        0        3.5      1.6
+SOLV  (chem _NXX-H)   0        0        0        3.5      1.6
+SOLV  (chem _NXXSO)   0        -10      -10      6        1.6
+SOLV  (chem _NXXPO)   0        -10      -10      6        1.6
+SOLV  (chem _NXXXX)   4.4      -20      -20      6.0      1.6 !! Choline (charged)
+SOLV  (chem _SC)      14.70    -3       -3       3.50     1.890 
+SOLV  (chem _SH1E)    21.40    -2.050   -2.70    3.50     1.890 !! CEDU_SG   ->SH1E
+SOLV  (chem _S)       14.70    -3.240   -4.10    3.50     1.890 !! CEDU_SGNP ->S
+SOLV  (chem _SXXX)    7.77    -20.00   -20.00    6        1.890 !! sulfonium
+SOLV  (chem _SOXX)    7.77     -8       -8       3.5      1.890 !! sulfoxide
+SOLV  (chem _SXXXX)   7.77     0        0        3.5      1.890 !! sulfone 
+SOLV  (chem _PXXXX)   0        0        0        3.5      2.02
+SOLV  (chem _FX)      6.07     0        0        3.5      1.65  
+SOLV  (chem _ClX)     18.1     0        0        3.5      1.96
+SOLV  (chem _BrX)     26       0        0        3.5      2.07
+SOLV  (chem _IX)      30.2     0        0        3.5      2.22
+SOLV  (chem _Cu)     10.24    -20.00	-20.00	 6.0	  1.20  !! ???
+SOLV  (chem _Zn)     36.76    -20.00	-20.00	 6.0	  1.85  !! ???
+SOLV  (chem _Eh)      0.00     0.00     0.00     0.00     0.000 !! explicit hydrogen
+SOLV  (chem _CGLIP)  45.00     2.00     2.00     4.50     2.10  !! coarse-grained Lipid gas
+!
+!the following is the NBFixes for VDW parameters
+!
+nbfix (chem ca1*)(chem ca2*)  4999551.8   1220.6  4999551.8   1220.6
+nbfix (chem ca1*)(chem  ca3)  3402048.6   1129.9  3402048.6   1129.9
+nbfix (chem ca2*)(chem ca2*)  2727211.8   1116.1  2727211.8   1116.1
+nbfix (chem ca2*)(chem  ca3)  2725726.5   1252.2  2725726.5   1252.2
+nbfix (chem  ca3)(chem  ca3)  3042501.4   1484.6  3042501.4   1484.6
+nbfix (chem cm1*)(chem ca1*)  1265810.6    621.8  1265810.6    621.8
+nbfix (chem cm1*)(chem ca2*)  1940365.9    953.2  1940365.9    953.2
+nbfix (chem cm1*)(chem  ca3)  2443485.8   1200.4  2443485.8   1200.4
+nbfix (chem cm1*)(chem cm1*)  1989029.4    977.1  1989029.4    977.1
+nbfix (chem  cr*)(chem cm1*)  1736813.6    913.1  1736813.6    913.1
+nbfix (chem  cr*)(chem ca1*)  3226286.2    990.7  3226286.2    990.7
+nbfix (chem  cr*)(chem ca2*)  2618171.2   1107.2  2618171.2   1107.2
+nbfix (chem  cr*)(chem ca3*)  2794086.5   1283.6  2794086.5   1283.6
+!
+!the NBFox for small-molecule type
+!nbfix (chem ca1*)(chem  ca2*) 4999551.8   1220.6  4999551.8   1220.6
+nbfix (chem  ca1*)(chem _CH2E) 4999551.8   1220.6  4999551.8   1220.6
+nbfix (chem _CH1E)(chem  ca2*) 4999551.8   1220.6  4999551.8   1220.6
+nbfix (chem _CH1E)(chem _CH2E) 4999551.8   1220.6  4999551.8   1220.6
+!
+!nbfix (chem ca1*)(chem   ca3) 3402048.6   1129.9  3402048.6   1129.9
+nbfix (chem  ca1*)(chem _CH3E) 3402048.6   1129.9  3402048.6   1129.9
+nbfix (chem _CH1E)(chem   ca3) 3402048.6   1129.9  3402048.6   1129.9
+nbfix (chem _CH1E)(chem _CH3E) 3402048.6   1129.9  3402048.6   1129.9
+!
+!nbfix (chem ca2*)(chem  ca2*) 2727211.8   1116.1  2727211.8   1116.1
+nbfix (chem   ca*)(chem _CH2E) 2727211.8   1116.1  2727211.8   1116.1
+nbfix (chem _CH2E)(chem _CH2E) 2727211.8   1116.1  2727211.8   1116.1
+!
+!nbfix (chem ca2*)(chem   ca3) 2725726.5   1252.2  2725726.5   1252.2
+nbfix (chem  ca2*)(chem _CH3E) 2725726.5   1252.2  2725726.5   1252.2
+nbfix (chem _CH2E)(chem   ca3) 2725726.5   1252.2  2725726.5   1252.2
+nbfix (chem _CH2E)(chem _CH3E) 2725726.5   1252.2  2725726.5   1252.2
+!
+!nbfix (chem  ca3)(chem   ca3) 3042501.4   1484.6  3042501.4   1484.6
+nbfix (chem   ca3)(chem _CH3E) 3042501.4   1484.6  3042501.4   1484.6
+nbfix (chem _CH3E)(chem _CH3E) 3042501.4   1484.6  3042501.4   1484.6
+!
+!nbfix (chem cm1*)(chem  ca1*) 1265810.6    621.8  1265810.6    621.8
+nbfix (chem  cm1*)(chem _CH1E) 1265810.6    621.8  1265810.6    621.8
+nbfix (chem _CR1E)(chem  ca1*) 1265810.6    621.8  1265810.6    621.8
+nbfix (chem _CR1E)(chem _CH1E) 1265810.6    621.8  1265810.6    621.8
+!
+!nbfix (chem cm1*)(chem  ca2*) 1940365.9    953.2  1940365.9    953.2
+nbfix (chem  cm1*)(chem _CH2E) 1940365.9    953.2  1940365.9    953.2
+nbfix (chem _CR1E)(chem  ca2*) 1940365.9    953.2  1940365.9    953.2
+nbfix (chem _CR1E)(chem _CH2E) 1940365.9    953.2  1940365.9    953.2
+!
+!nbfix (chem cm1*)(chem   ca3) 2443485.8   1200.4  2443485.8   1200.4
+nbfix (chem  cm1*)(chem _CH3E) 2443485.8   1200.4  2443485.8   1200.4
+nbfix (chem _CR1E)(chem   ca3) 2443485.8   1200.4  2443485.8   1200.4
+nbfix (chem _CR1E)(chem _CH3E) 2443485.8   1200.4  2443485.8   1200.4
+!
+!nbfix (chem cm1*)(chem  cm1*) 1989029.4    977.1  1989029.4    977.1
+nbfix (chem  cm1*)(chem _CR1E) 1989029.4    977.1  1989029.4    977.1
+nbfix (chem _CR1E)(chem _CR1E) 1989029.4    977.1  1989029.4    977.1
+!
+!nbfix (chem  cr*)(chem cm1*)  1736813.6    913.1  1736813.6    913.1
+nbfix (chem  cr*)(chem _CR1E)  1736813.6    913.1  1736813.6    913.1
+nbfix (chem  _CR)(chem  cm1*)  1736813.6    913.1  1736813.6    913.1
+nbfix (chem  _CR)(chem _CR1E)  1736813.6    913.1  1736813.6    913.1
+nbfix (chem   _C)(chem  cm1*)  1736813.6    913.1  1736813.6    913.1
+nbfix (chem   _C)(chem _CR1E)  1736813.6    913.1  1736813.6    913.1
+!
+!nbfix (chem  cr*)(chem ca1*)  3226286.2    990.7  3226286.2    990.7
+nbfix (chem  cr*)(chem _CH1E)  3226286.2    990.7  3226286.2    990.7
+nbfix (chem  _CR)(chem  ca1*)  3226286.2    990.7  3226286.2    990.7
+nbfix (chem  _CR)(chem _CH1E)  3226286.2    990.7  3226286.2    990.7
+nbfix (chem   _C)(chem  ca1*)  3226286.2    990.7  3226286.2    990.7
+nbfix (chem   _C)(chem _CH1E)  3226286.2    990.7  3226286.2    990.7
+!
+!nbfix (chem  cr*)(chem ca2*)  2618171.2   1107.2  2618171.2   1107.2
+nbfix (chem  cr*)(chem _CH2E)  2618171.2   1107.2  2618171.2   1107.2
+nbfix (chem  _CR)(chem  ca2*)  2618171.2   1107.2  2618171.2   1107.2
+nbfix (chem  _CR)(chem _CH2E)  2618171.2   1107.2  2618171.2   1107.2
+nbfix (chem   _C)(chem  ca2*)  2618171.2   1107.2  2618171.2   1107.2
+nbfix (chem   _C)(chem _CH2E)  2618171.2   1107.2  2618171.2   1107.2
+!
+!nbfix (chem  cr*)(chem ca3*)  2794086.5   1283.6  2794086.5   1283.6
+nbfix (chem  cr*)(chem _CH3E)  2794086.5   1283.6  2794086.5   1283.6
+nbfix (chem  _CR)(chem  ca3*)  2794086.5   1283.6  2794086.5   1283.6
+nbfix (chem  _CR)(chem _CH3E)  2794086.5   1283.6  2794086.5   1283.6
+nbfix (chem   _C)(chem  ca3*)  2794086.5   1283.6  2794086.5   1283.6
+nbfix (chem   _C)(chem _CH3E)  2794086.5   1283.6  2794086.5   1283.6
+!end

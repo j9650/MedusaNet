@@ -1,0 +1,27 @@
+ 1.000     #VDW-ATTR
+ 0.448     #VDW-REP        
+ 0.320     #SOLV-EEF1	   
+ 1.026     #HB_BB_SC	   
+ 4.394     #HB_SC_SC	   
+ 0.961     #PHI-PSI_AA	   
+ 0.684     #PHI-PSI-AA_CHI 
+-2.312     #CYS		   
+-0.594     #MET		   
+-0.236     #PHE		   
+-1.485     #ILE		   
+-1.597     #LEU		   
+-2.643     #VAL		   
+ 3.967     #TRP		   
+ 2.006     #TYR		   
+-5.299     #ALA		   
+-6.400     #GLY		   
+-1.220     #THR		   
+-2.307     #SER		   
+ 3.766     #GLN		   
+ 1.910     #ASN		   
+ 4.929     #GLU		   
+ 3.693     #ASP		   
+ 2.613     #HIS		   
+10.272     #ARG		   
+ 4.187     #LYS		   
+-3.700     #PRO		   

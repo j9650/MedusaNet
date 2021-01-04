@@ -1,0 +1,25 @@
+# Reference energy correction for fixed backbone calculation
+# FORMAT: RESidueName correction
+# newrefE = oldrefE + correction
+# in the order: 'A','C','D','E','F','G','H','I','K','L',
+#  'M','N','P','Q','R','S','T','V','W','Y';
+A    -0.22872575
+C   -13.7526 
+D     0.82699005
+E     0.89655130
+F    -0.64080439
+G     1.1586282
+H    -0.51355324
+I    -1.9323874
+K     1.9385293
+L    -1.5957247
+M    -3.2601997
+N    -0.16292387
+P     1.5895277
+Q     0.46416330
+R    -0.93789996
+S     1.0668772
+T     0.15412980
+V    -1.7878265
+W     2.4509595
+Y    -2.4761284

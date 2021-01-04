@@ -1,0 +1,745 @@
+A.DMD Atom Type 
+#####################################################
+# This is a NUCLEOTIDE all-atom paprameter file for #
+# DMD.                                              #
+# We include the polar hydrogens.                   #
+# To avoid the over-fast frequency for A-H collision#
+# we make the mass of H the same as C. This is based#
+# on the observation that mass does not affect the  #
+# diffusion property.                               #
+#  --- fding@unc.edu                                #
+#FIELD: ATOM                                        #
+#FORMAT: ATOM DMD_TYPE MASS HDR IR                  #
+#THE FIRST FOUR LETTER SHOUDL BE "ATOM"             #
+#ACTUALLY: HDE AND IR DEFINED HERE IS NOT USED      #
+#####################################################
+ATOM P		31.0    1.500   2.750 #PHOSPHATE,BACKBONE
+ATOM O1P	16.0    1.500   2.750 #PHOSPHATE,BACKBONE
+ATOM O2P	16.0    1.500   2.750 #PHOSPHATE,BACKBONE
+ATOM C1*	12.0    1.500   2.750 #SUGAR,BACKBONE     CA1
+ATOM C2*	12.0    1.500   2.750 #SUGAR,BACKBONE     CA1
+ATOM O2*	16.0    1.500   2.750 #SUGAR,BACKBONE     
+ATOM H2*	12.0    1.500   2.750 #SUGAR,BACKBONE     
+ATOM C3*	12.0    1.500   2.750 #SUGAR,BACKBONE     CA1
+ATOM O3*	16.0    1.500   2.750 #SUGAR,BACKBONE     
+ATOM C4*	12.0    1.500   2.750 #SUGAR,BACKBONE     CA1
+ATOM O4*	16.0    1.500   2.750 #SUGAR,BACKBONE     
+ATOM C5*	12.0    1.500   2.750 #SUGAR,BACKBONE     CA2
+ATOM O5*	16.0    1.500   2.750 #SUGAR,BACKBONE     
+ATOM PUR_N3	14.0    1.500   2.750 #PURINE	          
+ATOM PUR_C4	12.0    1.500   2.750 #PURINE             CRNP
+ATOM PUR_C5	12.0    1.500   2.750 #PURINE             CRNP
+ATOM PUR_N7	14.0    1.500   2.750 #PURINE	          
+ATOM PUR_C8	13.0    1.500   2.750 #PURINE             CM1P
+ATOM PUR_N9	14.0    1.500   2.750 #PURINE	          
+ATOM PYR_N1	14.0    1.500   2.750 #PYRIMIDINE         
+ATOM PYR_C2	12.0    1.500   2.750 #PYRIMIDINE         CR
+ATOM PYR_O2	16.0    1.500   2.750 #PYRIMIDINE         
+ATOM PYR_C5	13.0    1.500   2.750 #PYRIMIDINE         CM1
+ATOM PYR_C6	13.0    1.500   2.750 #PYRIMIDINE         CM1
+ATOM ADE_N1	14.0    1.500   2.750 #ADENOSINE          
+ATOM ADE_C2	13.0    1.500   2.750 #ADENOSINE          CM1P
+ATOM ADE_C6	12.0    1.500   2.750 #ADENOSINE          CRNP
+ATOM ADE_N6	14.0    1.500   2.750 #ADENOSINE          
+ATOM ADE_H61	12.0    1.500   2.750 #ADENOSINE          
+ATOM ADE_H62	12.0    1.500   2.750 #ADENOSINE          
+ATOM GUA_N1	14.0    1.500   2.750 #GUANOSINE          
+ATOM GUA_H1	12.0    1.500   2.750 #GUANOSINE          
+ATOM GUA_C2	12.0    1.500   2.750 #GUANOSINE          CRNP
+ATOM GUA_N2	14.0    1.500   2.750 #GUANOSINE          
+ATOM GUA_H21	12.0    1.500   2.750 #GUANOSINE          
+ATOM GUA_H22	12.0    1.500   2.750 #GUANOSINE          
+ATOM GUA_C6	12.0    1.500   2.750 #GUANOSINE          CRNP
+ATOM GUA_O6	16.0    1.500   2.750 #GUANOSINE          
+ATOM CYT_N3	14.0    1.500   2.750 #CYTIDINE	          
+ATOM CYT_C4	12.0    1.500   2.750 #CYTIDINE           CRNP
+ATOM CYT_N4	14.0    1.500   2.750 #CYTIDINE	          
+ATOM CYT_H41	12.0    1.500   2.750 #CYTIDINE	          
+ATOM CYT_H42	12.0    1.500   2.750 #CYTIDINE	          
+ATOM URI_N3	14.0    1.500   2.750 #URIDINE	          
+ATOM URI_H3	12.0    1.500   2.750 #URIDINE	          
+ATOM URI_C4	12.0    1.500   2.750 #URIDINE            CR
+ATOM URI_O4	16.0    1.500   2.750 #URIDINE
+
+B.Residue Constraint 
+###############################################################################################
+#FORMAT                                                                                       #
+#FIELD:	ATOM                                                                                  #  
+#FORMAT: ATOM PDB_TYPE DMD_TYPE                                                               #
+#                                                                                             #
+#FIELD: BOND,ANGLE                                                                            #
+#FORMAT: BOND/ANGLE PDB_TYPE_1 PDB_TYPE_2 AVE STD/AVE                                         #
+#                                                                                             #
+#FIELD: DIHEDRAL1                                                                             #
+#FORMAT: DIHEDRAL1 PDB_TYPE_1 PDB_TYPE_2 PDB_TYPE_3 PDB_TYPE_4 D_min, D_0, D_1, D_2, D_max    #
+#                                                                                             #
+#FIELD: DIHDERAL2                                                                             #
+#FORMAT: DIHEDRAL2 PDB_TYPE_1 PDB_TYPE_2 PDB_TYPE_3 PDB_TYPE_4 D_min, D_MAX                   #
+###############################################################################################
+RNA ADE
+ ATOM P		P
+ ATOM O1P       O1P
+ ATOM O2P       O2P
+ ATOM C1*       C1*
+ ATOM C2*       C2*
+ ATOM O2*       O2*
+ ATOM H2*       H2*
+ ATOM C3*       C3*
+ ATOM O3*       O3*
+ ATOM C4*       C4*
+ ATOM O4*       O4*
+ ATOM C5*       C5*
+ ATOM O5*       O5*
+ ATOM N1        ADE_N1
+ ATOM C2        ADE_C2
+ ATOM N3        PUR_N3
+ ATOM C4        PUR_C4
+ ATOM C5        PUR_C5
+ ATOM C6        ADE_C6
+ ATOM N6        ADE_N6
+ ATOM H61       ADE_H61
+ ATOM H62       ADE_H62
+ ATOM N7        PUR_N7
+ ATOM C8        PUR_C8
+ ATOM N9        PUR_N9 
+
+ BOND P   O1P    1.480  0.020
+ BOND P   O2P    1.480  0.020
+ BOND P   O5*	 1.610  0.020
+ BOND O5* C5*    1.430  0.020
+ BOND C5* C4*    1.525  0.020
+ BOND C4* O4*	 1.430  0.020
+ BOND C4* C3*	 1.525  0.020
+ BOND C3* O3*    1.430  0.020
+ BOND C3* C2*	 1.525  0.020
+ BOND C2* O2*    1.430  0.020
+ BOND C2* C1*    1.525  0.020
+ BOND O2* H2*	 0.960  0.020
+ BOND C1* O4*	 1.430  0.020
+ BOND C1* N9     1.475  0.020
+ BOND N9  C8     1.371  0.020
+ BOND N9  C4	 1.374  0.020
+ BOND C8  N7     1.304  0.020
+ BOND N7  C5     1.391  0.020
+ BOND C5  C4	 1.370  0.020
+ BOND C4  N3     1.354  0.020
+ BOND N3  C2     1.324  0.020
+ BOND C2  N1	 1.324  0.020
+ BOND N1  C6	 1.339  0.020
+ BOND C6  N6     1.333  0.020
+ BOND C6  C5	 1.404  0.020
+ BOND N6  H61    1.010  0.020
+ BOND N6  H62    1.010  0.020
+
+ ANGLE O1P	 O2P	2.562 0.015
+ ANGLE O1P	 O5*	2.505 0.015
+ ANGLE O2P	 O5*	2.505 0.015
+ ANGLE P	 C5*	2.641 0.015
+ ANGLE O5*	 C4*	2.450 0.015
+ ANGLE C5*	 O4*	2.436 0.015
+ ANGLE C5*	 C3*	2.514 0.015
+ ANGLE C4*	 O3*	2.436 0.015
+# ANGLE O4*	 C2*	2.340 0.015
+ ANGLE C3*	 O2*	2.436 0.015
+ ANGLE O3*	 C2*	2.436 0.015
+ ANGLE C2*	 H2*	1.970 0.015
+ ANGLE O2*	 C1*	2.436 0.015
+ ANGLE C2*	 N9	2.472 0.015
+ ANGLE O4*	 N9	2.394 0.015
+ ANGLE C1*	 C4	2.537 0.015
+ ANGLE C1*	 C8	2.567 0.015
+ ANGLE N9	 N3	2.431 0.015
+ ANGLE N9	 C5	2.194 0.015
+ ANGLE N9	 N7	2.242 0.015
+ ANGLE C8	 C4	2.184 0.015
+ ANGLE C8	 C5	2.121 0.015
+ ANGLE N7	 C4	2.267 0.015
+ ANGLE N7	 C6	2.557 0.015
+ ANGLE C5	 N1	2.343 0.015
+ ANGLE C5	 N3	2.445 0.015
+ ANGLE C5	 N6	2.411 0.015
+ ANGLE C4	 C2	2.207 0.015
+ ANGLE C4	 C6	2.369 0.015
+ ANGLE N3	 N1	2.391 0.015
+ ANGLE C2	 C6	2.290 0.015
+ ANGLE N1	 N6	2.312 0.015
+ ANGLE C6	 H61	2.036 0.015
+ ANGLE C6	 H62	2.036 0.015
+ ANGLE H61	 H62	1.749 0.015
+
+# DIHE1 P    O5*  C5*  C4* 2.000 2.100 2.200 3.862 6.500 #beta
+ CONSTR P             C4* 2.000 3.000 10.00 3.829 2.000 3.890 2.000 6.500
+ DIHE1 O5*  C5*  C4*  C3* 2.000 2.800 3.130 3.705 6.500 #gamma
+ 
+ ANGLE C4*	 C1*	2.364 0.015
+ ANGLE C4*	 C2*	2.336 0.015
+# DIHE1 O4*  C4*  C4*  C2* 2.000 2.100 2.200 2.350 2.385 #effectively model delta dihedral angle
+ ANGLE O4*             C2* 2.364 0.015
+# ANGLE C3*	 C1*	2.336 0.015
+# ANGLE O4*	 C3*	2.340 0.015
+ CONSTR C3*      C1*    2.000 2.300 0.600 2.380 -0.600 6.499 0.600 6.500
+ CONSTR O4*      C3*    2.000 2.300 0.600 2.370 -0.600 6.499 0.600 6.500
+ DIHE2 O4*  C4*  C3*  O3* 2.000 6.500
+ DIHE2 C5*  C4*  C3*  O3* 2.000 6.500 #delta; use DIHE2
+ DIHE2 C5*  C4*  C3*  C2* 2.000 6.500
+
+
+ DIHE1 C3*  C2*  O2*  H2* 2.000 2.700 2.860 3.200 6.500 #Rotamer of COH
+ DIHE1 C2*  C1*  N9   C4  2.000 3.120 3.460 6.499 6.500 #Sidechain Rotamer
+ DIHE1 C2*  C1*  N9   C8  2.000 3.330 3.600 6.499 6.500 #Sidecahin Rotamer
+
+
+ DIHE2 O5*  C5*  C4*  O4* 2.000 6.500
+ DIHE2 C5*  C4*  O4*  C1* 2.000 6.500
+ DIHE2 C4*  O4*  C1*  N9  2.000 6.500
+ DIHE2 C4*  C3*  C2*  O2* 2.000 6.500
+ DIHE2 O4*  C1*  C2*  O2* 2.000 6.500
+ DIHE2 O4*  C1*  N9   C4  2.000 6.500
+ DIHE2 O4*  C1*  N9   C8  2.000 6.500
+ DIHE2 C3*  C2*  C1*  N9  2.000 6.500
+ DIHE2 O3*  C3*  C2*  C1* 2.000 6.500
+ DIHE2 O3*  C3*  C2*  O2* 2.000 6.500
+# DIHE2 C2*  C1*  N9   C8  2.000 6.500
+ DIHE2 O2*  C2*  C1*  N9  2.000 6.500
+ DIHE2 H2*  O2*  C2*  C1* 2.000 6.500
+ DIHE2 C1*  N9   C4   N3  3.000 6.500
+ DIHE2 C1*  N9   C4   C5  3.550 6.500
+ DIHE2 C1*  N9   C8   N7  3.650 6.500
+ DIHE2 N9   C4   N3   C2  3.500 6.500
+ DIHE2 N9   C4   C5   C6  3.500 6.500
+ DIHE2 C8   N9   C4   N3  3.450 6.500
+ DIHE2 C8   N7   C5   C6  3.450 6.500
+ DIHE2 N7   C5   C6   N1  3.650 6.500
+ DIHE2 N7   C5   C4   N3  3.550 6.500
+ DIHE2 N7   C5   C6   N6  3.050 6.500
+ DIHE2 C5   C4   N3   C2  2.650 6.500
+ DIHE2 C4   N3   C2   N1  2.650 6.500
+ DIHE2 C4   C5   C6   N6  3.640 6.500
+ DIHE2 N3   C2   N1   C6  2.800 6.500
+ DIHE2 C2   N1   C6   N6  3.500 6.500
+# DIHE2 N1   C6   N6   H61 2.000 6.500
+# DIHE2 N1   C6   N6   H62 2.000 6.500
+
+ DIHE2 N3   C4   C6   N6  4.180 6.500
+ CONSTR O1P C5*  2.000 2.90 0.30 3.25 -0.30 3.70 0.30 6.500
+ CONSTR O2P C5*  2.000 2.90 0.30 3.25 -0.30 3.70 0.30 6.500
+ CONSTR C8  N1   2.000 4.000 2.000 4.200  2.000 4.400 10.00  6.500
+ CONSTR C8  C2   2.000 4.000 2.000 4.150  2.000 4.300 10.00  6.500
+ CONSTR C1* N6   2.000 5.500 2.000 5.750  2.000 6.000 10.00  6.500
+ CONSTR C5  H61  2.000 2.500 2.000 2.670 -2.000 3.310 2.000  6.500 
+ CONSTR C5  H62  2.000 2.500 2.000 2.670 -2.000 3.310 2.000  6.500
+ CONSTR N1  H61  2.000 2.450 2.000 2.520 -2.000 3.220 2.000  6.500
+ CONSTR N1  H62  2.000 2.450 2.000 2.520 -2.000 3.220 2.000  6.500
+ 
+RNA CYT
+ ATOM P		P
+ ATOM O1P	O1P
+ ATOM O2P	O2P
+ ATOM C1*	C1*
+ ATOM C2*	C2*
+ ATOM O2*	O2*
+ ATOM H2*	H2*
+ ATOM C3*	C3*
+ ATOM O3*	O3*
+ ATOM C4*	C4*
+ ATOM O4*	O4*
+ ATOM C5*	C5*
+ ATOM O5*	O5*
+
+ ATOM N1	PYR_N1
+ ATOM C2	PYR_C2
+ ATOM O2	PYR_O2
+ ATOM N3	CYT_N3
+ ATOM C4	CYT_C4
+ ATOM N4	CYT_N4
+ ATOM H41	CYT_H41
+ ATOM H42	CYT_H42
+ ATOM C5	PYR_C5 
+ ATOM C6	PYR_C6
+
+ BOND P    O1P       1.480  0.020
+ BOND P    O2P       1.480  0.020
+ BOND P    O5*	     1.610  0.020
+ BOND O5*  C5*       1.430  0.020
+ BOND C5*  C4*       1.525  0.020
+ BOND C4*  O4*       1.430  0.020
+ BOND C4*  C3*       1.525  0.020
+ BOND O4*  C1*       1.430  0.020
+ BOND C2*  C3*       1.525  0.020
+ BOND C3*  O3*       1.430  0.020
+ BOND C2*  O2*	     1.430  0.020
+ BOND O2*  H2*	     0.960  0.020
+ BOND C1*  C2*       1.525  0.020
+
+ BOND C1*  N1        1.475  0.020
+ BOND N1   C2	     1.383  0.020
+ BOND N1   C6        1.365  0.020
+ BOND C2   O2        1.229  0.020
+ BOND C2   N3        1.358  0.020
+ BOND N3   C4        1.339  0.020
+ BOND C4   N4        1.333  0.020
+ BOND C4   C5        1.433  0.020
+ BOND C5   C6        1.350  0.020
+ BOND N4   H41       1.010  0.020
+ BOND N4   H42       1.010  0.020
+ 
+ ANGLE O1P	 O2P	2.562  0.015
+ ANGLE O1P	 O5*	2.505  0.015
+ ANGLE O2P	 O5*	2.505  0.015
+ ANGLE P	 C5*	2.641  0.015
+ ANGLE O5*	 C4*	2.450  0.015
+ ANGLE C5*	 O4*	2.436  0.015
+ ANGLE C5*	 C3*	2.514  0.015
+ ANGLE C4*	 C1*	2.364  0.015
+ ANGLE C4*	 C2*	2.336  0.015
+ ANGLE C4*	 O3*	2.436  0.015
+# ANGLE O4*	 C3*	2.340  0.015
+ CONSTR O4*      C3*    2.000 2.300 0.600 2.370 -0.600 6.499 0.600 6.500
+# ANGLE O4*	 C2*	2.340  0.015
+# ANGLE C3*	 C1*	2.336  0.015
+ CONSTR C3*      C1*    2.000 2.300 0.600 2.380 -0.600 6.499 0.600 6.500
+
+ ANGLE C3*	 O2*	2.436  0.015
+ ANGLE O3*	 C2*	2.436  0.015
+ ANGLE C2*	 H2*	1.970  0.015
+ ANGLE O2*	 C1*	2.436  0.015
+
+ ANGLE C2*	 N1 	2.472  0.015
+ ANGLE O4*       N1 	2.394  0.015
+ ANGLE C1*       C2 	2.445  0.015
+ ANGLE C1*       C6 	2.475  0.015
+ ANGLE N1        O2 	2.274  0.015
+ ANGLE N1        N3 	2.357  0.015
+ ANGLE N1        C5 	2.365  0.015
+ ANGLE C2        C4 	2.342  0.015
+ ANGLE C2        C6 	2.399  0.015
+ ANGLE O2        N3 	2.269  0.015
+ ANGLE N3        N4 	2.312  0.015
+ ANGLE N3        C5 	2.419  0.015
+ ANGLE C4        H41	2.036  0.015
+ ANGLE C4        H42	2.036  0.015
+ ANGLE C4        C6 	2.373  0.015
+ ANGLE N4        C5 	2.397  0.015
+ ANGLE H41	 H42	1.749  0.015
+
+ CONSTR P             C4* 2.000 3.000 10.00 3.829 2.000 3.890 2.000 6.500
+# DIHE1 P    O5*  C5*  C4* 2.000 2.100 2.200 3.862 6.500 #beta
+ DIHE1 O5*  C5*  C4*  C3* 2.000 2.800 3.130 3.705 6.500 #gamma
+# DIHE1 O4*  C4*  C4*  C2* 2.000 2.100 2.200 2.350 2.385 #effectively model delta dihedral angle
+ ANGLE O4*             C2* 2.364 0.015
+
+ DIHE1 C3*  C2*  O2*  H2* 2.000 2.700 2.860 3.200 6.500 #Rotamer of COH
+ DIHE1 C2*  C1*  N1   C2  2.000 3.088 3.371 6.499 6.500 #sidechain Rotamer
+ DIHE1 C2*  C1*  N1   C6  2.000 3.210 3.530 6.499 6.500 #sidechain Rotamer
+
+ DIHE2 O5*  C5*  C4*  O4* 2.000 6.500
+ DIHE2 C5*  C4*  O4*  C1* 2.000 6.500
+ DIHE2 C5*  C4*  C3*  C2* 2.000 6.500
+ DIHE2 C5*  C4*  C3*  O3* 2.000 6.500 #delta; DIHE2
+ DIHE2 C4*  O4*  C1*  N1  2.000 6.500
+ DIHE2 C4*  C3*  C2*  O2* 2.000 6.500
+ DIHE2 O4*  C1*  C2*  O2* 2.000 6.500
+ DIHE2 O4*  C4*  C3*  O3* 2.000 6.500
+ DIHE2 O4*  C1*  N1   C2  2.000 6.500
+ DIHE2 O4*  C1*  N1   C6  2.000 6.500
+ DIHE2 C3*  C2*  C1*  N1  2.000 6.500
+ DIHE2 O3*  C3*  C2*  C1* 2.000 6.500
+ DIHE2 O3*  C3*  C2*  O2* 2.000 6.500
+# DIHE2 C2*  C1*  N1   C6  2.000 6.500
+ DIHE2 C1*  N1   C2   O2  2.650 6.500
+ DIHE2 C1*  N1   C6   C5  3.650 6.500
+ DIHE2 C1*  N1   C2   N3  3.650 6.500
+ DIHE2 N1   C2   N3   C4  2.650 6.500
+
+ DIHE2 C2   N3   C4   N4  3.500 6.500
+
+ DIHE2 C2   N3   C4   C5  2.750 6.500
+ DIHE2 O2   C2   N3   C4  3.500 6.500
+ DIHE2 O2   C2   N1   C6  3.500 6.500
+
+ DIHE2 N3   C4   C5   C6  2.650 6.500
+ DIHE2 N4   C4   C5   C6  3.550 6.500
+
+
+ CONSTR O1P C5*  2.000 2.90 0.30 3.25 -0.30 3.70 0.30 6.500
+ CONSTR O2P C5*  2.000 2.90 0.30 3.25 -0.30 3.70 0.30 6.500
+ CONSTR C1*  N4  2.000 5.000 2.000 5.250  2.00 5.550 10.00  6.500
+ CONSTR N3   H41 2.000 2.400 2.000 2.500 -2.00 3.180 2.00 6.500
+ CONSTR N3   H42 2.000 2.400 2.000 2.500 -2.00 3.180 2.00 6.500
+ CONSTR C5   H41 2.000 2.500 2.000 2.600 -2.00 3.200 2.00 6.500
+ CONSTR C5   H42 2.000 2.500 2.000 2.600 -2.00 3.200 2.00 6.500
+
+RNA GUA
+ ATOM P		P
+ ATOM O1P	O1P
+ ATOM O2P	O2P
+ ATOM C1*	C1*
+ ATOM C2*	C2*
+ ATOM O2*	O2*
+ ATOM H2*	H2*
+ ATOM C3*	C3*
+ ATOM O3*	O3*
+ ATOM C4*	C4*
+ ATOM O4*	O4*
+ ATOM C5*	C5*
+ ATOM O5*	O5*
+
+ ATOM N1	GUA_N1
+ ATOM H1	GUA_H1
+ ATOM C2	GUA_C2
+ ATOM N2	GUA_N2
+ ATOM H21	GUA_H21
+ ATOM H22	GUA_H22
+ ATOM N3	PUR_N3
+ ATOM C4	PUR_C4
+ ATOM C5	PUR_C5
+ ATOM C6	GUA_C6
+ ATOM O6	GUA_O6
+ ATOM N7	PUR_N7
+ ATOM C8	PUR_C8
+ ATOM N9	PUR_N9
+
+ BOND P    O1P       1.480  0.020
+ BOND P    O2P       1.480  0.020 
+ BOND P    O5*       1.610  0.020
+ BOND O5*  C5*       1.430  0.020
+ BOND C5*  C4*       1.525  0.020
+ BOND C4*  O4*       1.430  0.020
+ BOND C4*  C3*       1.525  0.020
+ BOND C3*  O3*       1.430  0.020
+ BOND C2*  C3*       1.525  0.020
+ BOND C2*  O2*       1.430  0.020
+ BOND C1*  C2*       1.525  0.020
+ BOND O2*  H2*	     0.960  0.020
+ BOND O4*  C1*       1.430  0.020 
+
+ BOND C1*  N9        1.475  0.020
+ BOND N9   C8        1.371  0.020
+ BOND N9   C4        1.374  0.020
+ BOND C4   N3        1.354  0.020
+ BOND C4   C5        1.370  0.020 
+
+ BOND N3   C2        1.339  0.020
+ BOND C2   N2        1.333  0.020
+ BOND C2   N1        1.381  0.020
+ BOND N1   C6        1.388  0.020
+ BOND C6   O6        1.229  0.020
+ BOND C6   C5        1.419  0.020
+
+ BOND C5   N7        1.391  0.020
+ BOND N7   C8        1.304  0.020
+ BOND N2   H21       1.010  0.020
+ BOND N2   H22       1.010  0.020
+ BOND N1   H1        1.010  0.020
+
+ ANGLE O1P	 O2P	2.562  0.015
+ ANGLE O1P	 O5*	2.505  0.015
+ ANGLE O2P	 O5*	2.505  0.015
+ ANGLE P	 C5*	2.641  0.015
+ ANGLE O5*	 C4*	2.450  0.015
+ ANGLE C5*	 O4*	2.436  0.015
+ ANGLE C5*	 C3*	2.514  0.015
+ ANGLE C4*	 C1*	2.364  0.015
+ ANGLE C4*	 C2*	2.336  0.015
+ ANGLE C4*	 O3*	2.436  0.015
+# ANGLE O4*	 C3*	2.340  0.015
+ CONSTR O4*      C3*    2.000 2.300 0.600 2.370 -0.600 6.499 0.600 6.500
+# ANGLE O4*	 C2*	2.340  0.015
+# ANGLE C3*	 C1*	2.336  0.015
+ CONSTR C3*      C1*    2.000 2.300 0.600 2.380 -0.600 6.499 0.600 6.500
+ ANGLE C3*	 O2*	2.436  0.015
+ ANGLE O3*	 C2*	2.436  0.015
+ ANGLE C2*	 H2*	1.970  0.015
+ ANGLE O2*	 C1*	2.436  0.015
+
+ ANGLE C2*   N9   2.472  0.015
+ ANGLE O4*   N9   2.394  0.015
+ ANGLE C1*   C4   2.537  0.015
+ ANGLE C1*   C8   2.567  0.015
+ ANGLE N9    N3   2.431  0.015
+ ANGLE N9    C5   2.194  0.015
+ ANGLE N9    N7   2.242  0.015
+ ANGLE C8    C4   2.184  0.015
+ ANGLE C8    C5   2.121  0.015
+ ANGLE N7    C4   2.267  0.015
+ ANGLE N7    C6   2.547  0.015
+ ANGLE C5    N3   2.445  0.015
+ ANGLE C5    N1   2.318  0.015
+ ANGLE C5    O6   2.389  0.015
+ ANGLE C6    C4   2.406  0.015
+ ANGLE C6    C2   2.458  0.015
+ ANGLE C6    H1   2.049  0.015
+ ANGLE O6    N1   2.275  0.015
+ ANGLE N1    N2   2.302  0.015
+ ANGLE N1    N3   2.394  0.015
+ ANGLE H1    C2   2.072  0.015
+ ANGLE C2    H21  2.036  0.015
+ ANGLE C2    H22  2.036  0.015
+ ANGLE C2    C4   2.235  0.015
+ ANGLE N2    N3   2.312  0.015
+ ANGLE H21   H22  1.749  0.015
+ 
+ CONSTR P             C4* 2.000 3.000 10.00 3.829 2.000 3.890 2.000 6.500
+# DIHE1 P    O5*  C5*  C4* 2.000 2.100 2.200 3.862 6.500 #beta
+ DIHE1 O5*  C5*  C4*  C3* 2.000 2.800 3.130 3.705 6.500 #gamma
+# DIHE1 O4*  C4*  C3*  C2* 2.000 2.100 2.200 2.350 2.385 #deffectively model delta dihedral angle
+ ANGLE O4*            C2*    2.364 0.015
+ DIHE1 C3*  C2*  C2*  H2* 2.000 2.700 2.860 3.200 6.500 #Rotamer of COH
+ DIHE1 C2*  C1*  N9   C4  2.000 3.120 3.460 6.499 6.500 #Sidechain Rotamer
+ DIHE1 C2*  C1*  N9   C8  2.000 3.330 3.600 6.499 6.500 #Sidechain Rotamer
+
+ DIHE2 O5*  C5*  C4*  O4* 2.000 6.500
+ DIHE2 C5*  C4*  O4*  C1* 2.000 6.500
+ DIHE2 C5*  C4*  C3*  C2* 2.000 6.500
+ DIHE2 C5*  C4*  C3*  O3* 2.000 6.500 #delta, USE DIHE2
+ DIHE2 C4*  O4*  C1*  N9  2.000 6.500
+ DIHE2 C4*  C3*  C2*  O2* 2.000 6.500
+ DIHE2 O4*  C1*  C2*  O2* 2.000 6.500
+ DIHE2 O4*  C4*  C3*  O3* 2.000 6.500
+ DIHE2 O4*  C1*  N9   C4  2.000 6.500
+ DIHE2 O4*  C1*  N9   C8  2.000 6.500
+ DIHE2 C3*  C2*  C1*  N9  2.000 6.500
+ DIHE2 O3*  C3*  C2*  C1* 2.000 6.500
+ DIHE2 O3*  C3*  C2*  O2* 2.000 6.500
+# DIHE2 C2*  C1*  N9   C8  2.000 6.500
+ DIHE2 O2*  C2*  C1*  N9  2.000 6.500
+ DIHE2 H2*  O2*  C2*  C1* 2.000 6.500
+ DIHE2 C1*  N9   C4   N3  3.000 6.500
+ DIHE2 C1*  N9   C4   C5  3.550 6.500
+ DIHE2 C1*  N9   C8   N7  3.650 6.500
+ DIHE2 N9   C4   N3   C2  3.500 6.500
+ DIHE2 N9   C4   C5   C6  3.500 6.500
+ DIHE2 C8   N9   C4   N3  3.450 6.500
+ DIHE2 C8   N7   C5   C6  3.450 6.500
+ DIHE2 N7   C5   C6   N1  3.650 6.500
+ DIHE2 N7   C5   C4   N3  3.550 6.500
+ DIHE2 N7   C5   C6   O6  3.020 6.500
+ DIHE2 C5   C6   N1   H1  3.220 6.500
+ DIHE2 C5   C6   N1   C2  2.650 6.500
+ DIHE2 C4   N3   C2   N2  3.450 6.500
+ DIHE2 C4   N3   C2   N1  2.650 6.500
+ DIHE2 C4   C5   C6   O6  3.570 6.500
+# DIHE2 N3   C2   N2   H21 2.000 6.500
+# DIHE2 N3   C2   N2   H22 2.000 6.500
+ DIHE2 N3   C2   N1   H1  3.240 6.500
+ DIHE2 N3   C2   N1   C6  2.800 6.500
+ DIHE2 C2   N1   C6   O6  3.570 6.500
+ DIHE2 N2   C2   N1   H1  2.450 6.500
+ DIHE2 N2   C2   N1   C6  3.600 6.500
+ DIHE2 H1   N1   C6   O6  2.450 6.500
+
+ DIHE2 O6   C6   C2   N3  4.15  6.500
+ CONSTR O1P C5*  2.000 2.90 0.30 3.25 -0.30 3.70 0.30 6.500
+ CONSTR O2P C5*  2.000 2.90 0.30 3.25 -0.30 3.70 0.30 6.500
+ CONSTR C8  N1   2.000 4.000 2.000 4.200  2.000 4.400 10.00  6.500
+ CONSTR C8  C2   2.000 4.000 2.000 4.150  2.000 4.340 10.00  6.500
+ CONSTR N7  N2   2.000 5.000 2.000 5.200  2.000 5.400 10.00  6.500
+ CONSTR C1* O6   2.000 5.500 2.000 5.750  2.000 5.960 10.00  6.500
+ CONSTR N9  H1   2.000 4.500 2.000 4.750  2.000 5.000 10.00  6.500
+ CONSTR N1  H21  2.000 2.400 2.000 2.510 -2.000 3.220 2.000  6.500
+ CONSTR N1  H22  2.000 2.400 2.000 2.510 -2.000 3.220 2.000  6.500
+ CONSTR N3  H21  2.000 2.400 2.000 2.510 -2.000 3.220 2.000  6.500
+ CONSTR N3  H22  2.000 2.400 2.000 2.510 -2.000 3.220 2.000  6.500
+
+RNA URI
+ ATOM P		P	 
+ ATOM O1P	O1P
+ ATOM O2P	O2P
+ ATOM C1*	C1*
+ ATOM C2*	C2*
+ ATOM O2*	O2*
+ ATOM H2*	H2*
+ ATOM C3*	C3*
+ ATOM O3*	O3*
+ ATOM C4*	C4*
+ ATOM O4*	O4*
+ ATOM C5*	C5*
+ ATOM O5*	O5*
+
+ ATOM N1	PYR_N1
+ ATOM C2	PYR_C2
+ ATOM O2	PYR_O2
+ ATOM N3	URI_N3
+ ATOM H3	URI_H3
+ ATOM C4	URI_C4
+ ATOM O4	URI_O4
+ ATOM C5	PYR_C5
+ ATOM C6	PYR_C6
+
+ BOND P    O1P       1.480  0.020
+ BOND P    O2P	     1.480  0.020
+ BOND P    O5*	     1.610  0.020
+ BOND O5*  C5*	     1.430  0.020
+ BOND C5*  C4*	     1.525  0.020
+ BOND C4*  O4*	     1.430  0.020
+ BOND C4*  C3*       1.525  0.020
+ BOND O4*  C1*	     1.430  0.020
+ BOND C1*  C2*       1.525  0.020
+ BOND C2*  C3*       1.525  0.020
+ BOND C3*  O3*	     1.430  0.020
+ BOND C2*  O2*       1.430  0.020
+ BOND O2*  H2*	     0.960  0.020
+ BOND C1*  N1        1.475  0.020
+ BOND N1   C2	     1.383  0.020
+ BOND N1   C6        1.365  0.020
+ BOND C2   O2        1.229  0.020
+ BOND C2   N3	     1.388  0.020
+ BOND N3   C4        1.388  0.020
+ BOND C4   O4        1.229  0.020
+ BOND C4   C5	     1.444  0.020
+ BOND C5   C6        1.350  0.020
+ BOND N3   H3        1.010  0.020
+
+ ANGLE O1P	 O2P	2.562  0.015
+ ANGLE O1P	 O5*	2.505  0.015
+ ANGLE O2P	 O5*	2.505  0.015
+ ANGLE P	 C5*	2.641  0.015
+ ANGLE O5*	 C4*	2.450  0.015
+ ANGLE C5*	 O4*	2.436  0.015
+ ANGLE C5*	 C3*	2.514  0.015
+ ANGLE C4*	 C1*	2.364  0.015
+ ANGLE C4*	 C2*	2.336  0.015
+ ANGLE C4*	 O3*	2.436  0.015
+# ANGLE O4*	 C3*	2.340  0.015
+ CONSTR O4*      C3*    2.000 2.300 0.600 2.370 -0.600 6.499 0.600 6.500
+
+# ANGLE O4*	 C2*	2.340  0.015
+# ANGLE C3*	 C1*	2.336  0.015
+ CONSTR C3*      C1*    2.000 2.300 0.600 2.380 -0.600 6.499 0.600 6.500
+
+ ANGLE C3*	 O2*	2.436  0.015
+ ANGLE O3*	 C2*	2.436  0.015
+ ANGLE C2*	 H2*	1.970  0.015
+ ANGLE O2*	 C1*	2.436  0.015
+
+ ANGLE C2*    N1  2.472  0.015
+ ANGLE O4*    N1  2.394  0.015
+ ANGLE C1*    C2  2.445  0.015
+ ANGLE C1*    C6  2.475  0.015
+ ANGLE N1     O2  2.274  0.015
+ ANGLE N1     N3  2.342  0.015
+ ANGLE N1     C5  2.365  0.015
+ ANGLE C2     C4  2.478  0.015
+ ANGLE C2     H3  2.049  0.015
+ ANGLE C2     C6  2.399  0.015
+ ANGLE O2     N3  2.274  0.015
+ ANGLE N3     O4  2.274  0.015
+ ANGLE N3     C5  2.377  0.015
+ ANGLE H3     C4  2.049  0.015
+ ANGLE C4     C6  2.429  0.015
+ ANGLE O4     C5  2.376  0.015
+
+ CONSTR P             C4* 2.000 3.000 10.00 3.829 2.000 3.890 2.000 6.500
+# DIHE1 P    O5*  C5*  C4* 2.000 2.100 2.200 3.862 6.500 #beta
+ DIHE1 O5*  C5*  C4*  C3* 2.000 2.800 3.130 3.705 6.500 #gamma
+# DIHE1 O4*  C4*  C3*  C2* 2.000 2.100 2.200 2.350 2.385 #effectively model delta dihedral angle
+ ANGLE O4*             C2* 2.364 0.015
+
+ DIHE1 C3*  C2*  O2*  H2* 2.000 2.700 2.860 3.200 6.500 #Rotamer of COH
+ DIHE1 C2*  C1*  N1   C2  2.000 3.088 3.371 6.499 6.500 #sidechain Rotamer
+ DIHE1 C2*  C1*  N1   C6  2.000 3.210 3.530 6.499 6.500 #sidechain Rotamer
+
+ DIHE2 O5*  C5*  C4*  O4* 2.000 6.500
+ DIHE2 C5*  C4*  O4*  C1* 2.000 6.500
+ DIHE2 C5*  C4*  C3*  C2* 2.000 6.500
+ DIHE2 C5*  C4*  C3*  O3* 2.000 6.500 #delta; DIHE2
+ DIHE2 C4*  O4*  C1*  N1  2.000 6.500
+ DIHE2 C4*  C3*  C2*  O2* 2.000 6.500
+ DIHE2 O4*  C1*  C2*  O2* 2.000 6.500
+ DIHE2 O4*  C4*  C3*  O3* 2.000 6.500
+ DIHE2 O4*  C1*  N1   C2  2.000 6.500
+ DIHE2 O4*  C1*  N1   C6  2.000 6.500
+ DIHE2 C3*  C2*  C1*  N1  2.000 6.500
+ DIHE2 O3*  C3*  C2*  C1* 2.000 6.500
+ DIHE2 O3*  C3*  C2*  O2* 2.000 6.500
+# DIHE2 C2*  C1*  N1   C6  2.000 6.500
+ DIHE2 C1*  N1   C2   O2  2.650 6.500
+ DIHE2 C1*  N1   C6   C5  3.650 6.500
+ DIHE2 C1*  N1   C2   N3  3.650 6.500
+ DIHE2 N1   C2   N3   H3  3.170 6.500
+ DIHE2 N1   C2   N3   C4  2.650 6.500
+ DIHE2 C2   N3   C4   O4  2.500 6.500
+ DIHE2 O2   C2   N3   H3  2.400 6.500
+
+ DIHE2 C2   N3   C4   C5  2.750 6.500
+ DIHE2 O2   C2   N3   C4  3.500 6.500
+ DIHE2 O2   C2   N3   C6  3.500 6.500
+
+ DIHE2 N3   C4   C5   C6  2.650 6.500
+ DIHE2 H3   N3   C4   O4  2.400 6.500
+ DIHE2 H3   N3   C4   C5  3.250 6.500
+ DIHE2 O4   C4   C5   C6  2.500 6.500
+
+ DIHE2 C5   C6   C2   O2  4.040 6.500
+ DIHE2 C6   N1   N3   H3  3.680 6.500
+ CONSTR O1P C5*  2.000 2.90 0.30 3.25 -0.30 3.70 0.30 6.500
+ CONSTR O2P C5*  2.000 2.90 0.30 3.25 -0.30 3.70 0.30 6.500
+ CONSTR C1* O4   2.000 5.000 2.000 5.250 2.000 5.550 10.0 6.500
+
+#####################################
+# inter residue BOND constraints
+# Mostly, the type-dependent constraints 
+# FORMAT: BOND/DIHE DMD_TYPE1 DMD_TYPE2 AVE_D STD/AVE
+# NOTE HERE, DIHE has a different format as above
+# also The type is DMD_TYPE
+#####################################
+C.Peptide Constraints
+BOND P   O3*	1.610 0.020
+BOND P	 C3*	2.641 0.015
+BOND O3* O5*	2.513 0.015
+BOND O1P O3*    2.505 0.015
+BOND O2P O3*    2.505 0.015
+
+############################################
+# inter residue DIHE constraints
+# Mostly, the type-indepent constraints, Implemented in DMD as "N.CONSTRAINTS"
+# FORMAT: 
+# BOND  -PDB_TYPE1 PDB_TYPE2 AVE_D STD/AVE
+# DIHE1 -PDB_TYPE1 PDB_TYPE2 D0 D1 D2 D3 D4
+# NOTE HERE: the "-" sign in front of PDB_TYPE1 indicated the PDB_TYPE1 in the previous atoms
+############################################
+D.Constraints
+#epsilon dihedral
+DIHE1 -C4* P   0.800 3.800 0.60 3.850  0.60 3.950 -0.60 4.01 -0.60 6.499 1.20 6.500
+#epsilon dihedral
+DIHE1 -C2* P   0.800 3.230 0.60 3.300  0.60 3.580 -0.60 3.67 -0.60 3.820 0.20 3.950 -0.60  6.499 1.60 6.500
+#zeta dihedral 
+DIHE1 -C3* O5* 0.800 3.043 1.20 3.255 -1.20 3.720  0.30 6.499 0.90 6.500
+#alpha dihedral
+DIHE1 -O3* C5* 0.800 3.000 1.20 3.362 -1.20 3.700  0.30 6.499 0.90 6.500 
+#HACK
+DIHE1 -C3* O1P 0.01  2.820 0.30 3.050 -0.30 3.780  0.30 6.500
+DIHE1 -C3* O2P 0.01  2.820 0.30 3.050 -0.30 3.780  0.30 6.500
+DIHE  -C3* C5* 0.01 3.00 10.0 3.500 0.600 3.700 0.600 7.500
+DIHE  -C2* C5* 0.01 3.00 10.0 3.260 0.600 7.500
+DIHE  -O2* C5* 0.01 2.00 10.0 2.800 0.600 7.500
+DIHE  -O2* O5* 0.01 2.00 10.0 2.800 0.600 7.500
+DIHE  -C2* C4* 0.01 3.00 10.0 3.700 0.600 7.500
+DIHE  -C2* O4* 0.01 2.00 10.0 2.800 0.600 7.500
+
+########################################
+#Explicit definition of INTER-RESIDUE CONSTRAINTS/CONNECTIONS
+#FOR XDMD
+#FORMAT: RESIDUE/RNA/DNA_i RESIDUE/RNA/DNA_j
+#######################################
+E.INTER_CHAIN
+RNA_0 *.O3* RNA_1 *.P	1.578 1.642
+RNA_0 *.C3* RNA_1 *.P	2.601 2.681
+RNA_0 *.O3* RNA_1 *.O5*	2.475 2.551
+RNA_0 *.O3* RNA_1 *.O1P	2.467 2.543
+RNA_0 *.O3* RNA_1 *.O2P	2.467 2.543
+
+RNA_0 *.C4* RNA_1 *.P	0.800 3.800 0.60 3.850  0.60 3.950 -0.60 4.01 -0.60 6.499 1.20 6.500
+RNA_0 *.C2* RNA_1 *.P	0.800 3.230 0.60 3.300  0.60 3.580 -0.60 3.67 -0.60 3.820 0.20 3.950 -0.60  6.499 1.60 6.500
+RNA_0 *.C3* RNA_1 *.O5*	0.800 3.043 1.20 3.255 -1.20 3.720  0.30 6.499 0.90 6.500
+RNA_0 *.C3* RNA_1 *.O1P	0.010 2.820 0.30 3.050 -0.30 3.780  0.30 6.500
+RNA_0 *.C3* RNA_1 *.O2P	0.010 2.820 0.30 3.050 -0.30 3.780  0.30 6.500
+
+RNA_0 *.O3* RNA_1 *.C5*	0.800 3.000 1.20 3.362 -1.20 3.700  0.30 6.499 0.90 6.500
+RNA_0 *.C3* RNA_1 *.C5*	0.01 3.00 10.0 3.500 0.600 3.700 0.600 7.500
+RNA_0 *.C2* RNA_1 *.C5*	0.01 3.00 10.0 3.260 0.600 7.500
+RNA_0 *.O2* RNA_1 *.C5*	0.01 2.00 10.0 2.800 0.600 7.500
+RNA_0 *.O2* RNA_1 *.O5*	0.01 2.00 10.0 2.800 0.600 7.500
+RNA_0 *.C2* RNA_1 *.C4* 0.01 3.00 10.0 3.700 0.600 7.500
+RNA_0 *.C2* RNA_1 *.O4*	0.01 2.00 10.0 2.800 0.600 8.500
+

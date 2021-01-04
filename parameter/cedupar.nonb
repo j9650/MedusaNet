@@ -1,0 +1,149 @@
+!set echo=true end
+{* nonbonding parameter section *}
+{* ============================ *}
+!                  eps     sigma    eps(1:4) sigma(1:4)
+!                  (kcal/mol) (A)    (kcal/mol) (A)
+!                 ---------------------------------------
+nonb  (chem h*)   0.00000  1.00000  0.00000  1.00000 !! polar H
+nonb  (chem cr*)  0.09690  3.36131  0.09690  3.36131 !! sp2 carbon
+nonb  (chem ca)   0.13008  4.23141  0.13554  3.29648 !! sp3 C
+! parameters for united atoms:
+NONB  (chem ca3)  0.17986  3.78647  0.23292  3.47414 !! United CH3
+NONB  (chem ca2*) 0.13993  3.96465  0.18741  3.38550 !! United CH2
+NONB  (chem ca1*) 0.13008  4.23141  0.13554  3.29648 !! United CH (aliphatic)
+NONB  (chem cm1*) 0.12011  3.74117  0.21799  3.38738 !! United CH (aromatic)
+!
+nonb  (chem nc*)  0.20983  2.97523  0.20983  2.97523 !! N in charged group (R.H Yun)
+nonb  (chem nz)   0.20983  2.97523  0.20983  2.97523 !! N in neutral group
+nonb  (chem nr)   0.20983  2.97523  0.20983  2.97523 !! N in aromatic ring with no hydrogen
+nonb  (chem nznp) 0.20983  2.97523  0.20983  2.97523 !! N in neutral group nonpolar
+nonb  (chem nznq) 0.20377  2.98250  0.20377  2.98250 !! N in neutral group
+nonb  (chem oc)   0.41134  2.62676  0.41134  2.62676 !! oxygen in charged group (R.H Yun)
+nonb  (chem oz)   0.41230  2.62574  0.41230  2.62574 !! oxygen in neutral group
+nonb  (chem ozh)  0.20202  2.95723  0.41325  2.62472 !! oxygen in neutral group
+nonb  (chem ow)   0.15575  3.16479  0.15575  3.16479 !! water O (spc)
+nonb  (chem sg*)  0.44218  3.31597  0.44218  3.31597 !! S
+!
+! the following is NBFIXes vdw parameters
+!                                                     ------1-4------
+!                                    B         A         B         A
+!                       [(Kcal/mol)*A^12] [(Kcal/mol)*A^6]
+!
+nbfix (chem   h*)(chem    *)         0       0.00         0       0.00
+! non dBh2o
+nbfix (chem   ow)(chem   ow)    629000.0   626.000   629000.0   626.000
+nbfix (chem   ow)(chem  cr*)    712177.1   591.584   712177.1   591.584
+nbfix (chem   ow)(chem   ca)   3283845.8  1367.359   749394.8   659.952
+nbfix (chem   ow)(chem ca1*)   3283845.8  1367.359   749394.8   659.952
+nbfix (chem   ow)(chem ca2*)   2304398.8  1166.536  1033955.5   840.595
+nbfix (chem   ow)(chem  ca3)   1982620.4  1152.104  1346041.8  1012.677
+nbfix (chem   ow)(chem cm1*)   1507318.7   908.107  1118858.5   908.107
+nbfix (chem   ow)(chem  nc*)    503990.3   603.693   503990.3   603.693
+nbfix (chem   ow)(chem   nz)    503990.3   603.693   503990.3   603.693
+nbfix (chem   ow)(chem nznp)    503990.3   603.693   503990.3   603.693
+nbfix (chem   ow)(chem nznq)    503990.3   599.290   503990.3   599.290
+nbfix (chem   ow)(chem   oc)    334184.3   581.678   334184.3   581.678
+nbfix (chem   ow)(chem   oz)    333796.7   581.678   333796.7   581.678
+nbfix (chem   ow)(chem  ozh)    476852.4   581.678   333409.0   581.678
+nbfix (chem   ow)(chem  sg*)   1402256.1  1213.256  1402256.1  1213.256
+!
+nbfix (chem  cr*)(chem  cr*)    806353.3   559.061   806353.3   559.061
+nbfix (chem  cr*)(chem   ca)   3718091.8  1292.186   848492.6   623.670
+nbfix (chem  cr*)(chem ca1*)   3718091.8  1292.186   848492.6   623.670
+nbfix (chem  cr*)(chem ca2*)   2609125.6  1102.403  1170682.7   794.382
+nbfix (chem  cr*)(chem  ca3)   2244796.2  1088.765  1524038.4   957.003
+nbfix (chem  cr*)(chem cm1*)   1706642.1   858.182  1266813.0   858.182
+nbfix (chem  cr*)(chem  nc*)    570636.5   570.503   570636.5   570.503
+nbfix (chem  cr*)(chem   nz)    570636.5   570.503   570636.5   570.503
+nbfix (chem  cr*)(chem nznp)    570636.5   570.503   570636.5   570.503
+nbfix (chem  cr*)(chem nznq)    570636.5   566.343   570636.5   566.343
+nbfix (chem  cr*)(chem   oc)    378375.9   549.699   378375.9   549.699
+nbfix (chem  cr*)(chem   oz)    377936.9   549.699   377936.9   549.699
+nbfix (chem  cr*)(chem  ozh)    539909.9   549.699   377498.0   549.699
+nbfix (chem  cr*)(chem  sg*)   1587686.3  1146.555  1587686.3  1146.555
+nbfix (chem   ca)(chem   ca)  17144107.2  2986.693   892834.0   695.746
+nbfix (chem   ca)(chem ca1*)  17144107.2  2986.693   892834.0   695.746
+nbfix (chem   ca)(chem ca2*)  12030668.4  2548.040  1231861.6   886.187
+nbfix (chem   ca)(chem  ca3)  10350746.6  2516.516  1603683.3  1067.602
+nbfix (chem   ca)(chem cm1*)   7869320.1  1983.560  1333015.6   957.360
+nbfix (chem   ca)(chem  nc*)   2631202.7  1318.633   600457.5   636.435
+nbfix (chem   ca)(chem   nz)   2631202.7  1318.633   600457.5   636.435
+nbfix (chem   ca)(chem nznp)   2631202.7  1318.633   600457.5   636.435
+nbfix (chem   ca)(chem nznq)   2631202.7  1309.016   600457.5   631.793
+nbfix (chem   ca)(chem   oc)   1744689.8  1270.547   398149.5   613.226
+nbfix (chem   ca)(chem   oz)   1742665.8  1270.547   397687.6   613.226
+nbfix (chem   ca)(chem  ozh)   2489522.6  1270.547   397225.7   613.226
+nbfix (chem   ca)(chem  sg*)   7320815.5  2650.089  1670657.4  1279.059
+nbfix (chem ca1*)(chem ca1*)  17144107.2  2986.693   892834.0   695.746
+nbfix (chem ca1*)(chem ca2*)  12030668.4  2548.040  1231861.6   886.187
+nbfix (chem ca1*)(chem  ca3)  10350746.6  2516.516  1603683.3  1067.602
+nbfix (chem ca1*)(chem cm1*)   7869320.1  1983.560  1333015.6   957.360
+nbfix (chem ca1*)(chem  nc*)   2631202.7  1318.633   600457.5   636.435
+nbfix (chem ca1*)(chem   nz)   2631202.7  1318.633   600457.5   636.435
+nbfix (chem ca1*)(chem nznp)   2631202.7  1318.633   600457.5   636.435
+nbfix (chem ca1*)(chem nznq)   2631202.7  1309.016   600457.5   631.793
+nbfix (chem ca1*)(chem   oc)   1744689.8  1270.547   398149.5   613.226
+nbfix (chem ca1*)(chem   oz)   1742665.8  1270.547   397687.6   613.226
+nbfix (chem ca1*)(chem  ozh)   2489522.6  1270.547   397225.7   613.226
+nbfix (chem ca1*)(chem  sg*)   7320815.5  2650.089  1670657.4  1279.059
+nbfix (chem ca2*)(chem ca2*)   8442374.9  2173.810  1699624.8  1128.755
+nbfix (chem ca2*)(chem  ca3)   7263510.3  2146.917  2212634.9  1359.827
+nbfix (chem ca2*)(chem cm1*)   5522199.5  1692.236  1839189.1  1219.410
+nbfix (chem ca2*)(chem  nc*)   1846414.4  1124.966   828463.5   810.641
+nbfix (chem ca2*)(chem   nz)   1846414.4  1124.966   828463.5   810.641
+nbfix (chem ca2*)(chem nznp)   1846414.4  1124.966   828463.5   810.641
+nbfix (chem ca2*)(chem nznq)   1846414.4  1116.761   828463.5   804.729
+nbfix (chem ca2*)(chem   oc)   1224314.8  1083.942   549335.1   781.079
+nbfix (chem ca2*)(chem   oz)   1222894.5  1083.942   548697.8   781.079
+nbfix (chem ca2*)(chem  ozh)   1746992.1  1083.942   548060.5   781.079
+nbfix (chem ca2*)(chem  sg*)   5137293.1  2260.872  2305040.5  1629.165
+nbfix (chem  ca3)(chem  ca3)   6249258.4  2120.356  2880490.6  1638.203
+nbfix (chem  ca3)(chem cm1*)   4751098.3  1671.300  2394324.9  1469.041
+nbfix (chem  ca3)(chem  nc*)   1588587.4  1111.049  1078524.7   976.591
+nbfix (chem  ca3)(chem   nz)   1588587.4  1111.049  1078524.7   976.591
+nbfix (chem  ca3)(chem nznp)   1588587.4  1111.049  1078524.7   976.591
+nbfix (chem  ca3)(chem nznq)   1588587.4  1102.945  1078524.7   969.468
+nbfix (chem  ca3)(chem   oc)   1053355.6  1070.532   715144.9   940.977
+nbfix (chem  ca3)(chem   oz)   1052133.6  1070.532   714315.2   940.977
+nbfix (chem  ca3)(chem  ozh)   1503048.1  1070.532   713485.6   940.977
+nbfix (chem  ca3)(chem  sg*)   4419938.9  2232.902  3000787.6  1962.678
+nbfix (chem cm1*)(chem cm1*)   3612098.2  1317.346  1990213.6  1317.346
+nbfix (chem cm1*)(chem  nc*)   1207748.9   875.747   896492.6   875.747
+nbfix (chem cm1*)(chem   nz)   1207748.9   875.747   896492.6   875.747
+nbfix (chem cm1*)(chem nznp)   1207748.9   875.747   896492.6   875.747
+nbfix (chem cm1*)(chem nznq)   1207748.9   869.360   896492.6   869.360
+nbfix (chem cm1*)(chem   oc)    800830.4   843.811   594443.6   843.811
+nbfix (chem cm1*)(chem   oz)    799901.4   843.811   593754.0   843.811
+nbfix (chem cm1*)(chem  ozh)   1142716.2   843.811   593064.3   843.811
+nbfix (chem cm1*)(chem  sg*)   3360329.0  1760.010  2494318.3  1760.010
+nbfix (chem  nc*)(chem  nc*)    403825.5   582.180   403825.5   582.180
+nbfix (chem  nc*)(chem   nz)    403825.5   582.180   403825.5   582.180
+nbfix (chem  nc*)(chem nznp)    403825.5   582.180   403825.5   582.180
+nbfix (chem  nc*)(chem nznq)    403825.5   577.934   403825.5   577.934
+nbfix (chem  nc*)(chem   oc)    446279.0   560.950   446279.0   560.950
+nbfix (chem  nc*)(chem   oz)    267456.7   560.950   267456.7   560.950
+nbfix (chem  nc*)(chem  ozh)    382081.0   560.950   267146.1   560.950
+nbfix (chem  nc*)(chem  sg*)   1123566.8  1170.022  1123566.8  1170.022
+nbfix (chem  nz*)(chem   nz)    403825.5   582.180   403825.5   582.180
+nbfix (chem  nz*)(chem nznp)    403825.5   582.180   403825.5   582.180
+nbfix (chem  nz*)(chem nznq)    403825.5   577.934   403825.5   577.934
+nbfix (chem  nz*)(chem   oc)    267767.4   560.950   267767.4   560.950
+nbfix (chem  nz*)(chem   oz)    267456.7   560.950   267456.7   560.950
+nbfix (chem  nz*)(chem  ozh)    382081.0   560.950   267146.1   560.950
+nbfix (chem  nz*)(chem  sg*)   1123566.8  1170.022  1123566.8  1170.022
+nbfix (chem nznq)(chem nznq)    403825.5   573.719   403825.5   573.719
+nbfix (chem nznq)(chem   oc)    267767.4   556.859   267767.4   556.859
+nbfix (chem nznq)(chem   oz)    267456.7   556.859   267456.7   556.859
+nbfix (chem nznq)(chem  ozh)    382081.0   556.859   267146.1   556.859
+nbfix (chem nznq)(chem  sg*)   1123566.8  1161.488  1123566.8  1161.488
+nbfix (chem   oc)(chem   oc)    177550.4   540.494   177550.4   540.494
+nbfix (chem   oc)(chem   oz)    177344.4   540.494   177344.4   540.494
+nbfix (chem   oc)(chem  ozh)    253349.1   540.494   177138.4   540.494
+nbfix (chem   oc)(chem  sg*)    745011.2  1127.355   745011.2  1127.355
+nbfix (chem   oz)(chem   oz)    177138.7   540.494   177138.7   540.494
+nbfix (chem   oz)(chem  ozh)    253055.2   540.494   176932.9   540.494
+nbfix (chem   oz)(chem  sg*)    744146.9  1127.355   744146.9  1127.355
+nbfix (chem  ozh)(chem  ozh)    361507.5   540.494   176727.4   540.494
+nbfix (chem  ozh)(chem  sg*)   1063067.0  1127.355   743282.6  1127.355
+nbfix (chem  sg*)(chem  sg*)   3126108.5  2351.421  3126108.5  2351.421
+!end
