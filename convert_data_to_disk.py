@@ -137,7 +137,8 @@ if __name__ == "__main__":
     resolution = iteration
     output_dir = '/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/pdbbind_rmsd_srand'
     input_list = '/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/pdb_list_'
-    # split_srand_label(cv, input_list)
+
+    split_srand_label(cv, input_list)
     srand_data_load_save(input_list, label_list_file, pdbbind_dir, groundtruth_dir, output_dir, cv, resolution, iteration)
     # load_and_save_dataset(input_list, label_list_file, pdbbind_dir, groundtruth_dir, output_dir, resolution)
 
