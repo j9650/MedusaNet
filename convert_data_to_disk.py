@@ -8,6 +8,9 @@ import sys
 
 import dataset_from_file as dff
 
+# set your seeds here, e.g., seeds are [367, 467, 567, ..., 1367]
+seeds = [i*100+67 for i in range(3,14)]
+
 def load_and_save_dataset(input_list, label_list_file, pdbbind_dir, groundtruth_dir, output_dir, resolution):
     tile_size = 1024
 
@@ -44,8 +47,9 @@ def srand_data_load_save(input_list, label_list_file, pdbbind_dir, groundtruth_d
 
     train_file_num = 0
     test_file_num = 0
-    for i in range(3,14):
-        dff.read_pdbbind_to_disk_rmsd_energy_split(input_list+'train', label_list_file+'/train_sb_s'+str(i)+'67.test', pdbbind_dir+str(i)+'67', groundtruth_dir,
+
+    for i in seeds:
+        dff.read_pdbbind_to_disk_rmsd_energy_split(input_list+'train', label_list_file+'/train_sb_s'+str(i)+'.test', pdbbind_dir+str(i), groundtruth_dir,
           output_dir_tmp+'/train', resolution, tile_size)
         dataset_file_list = os.listdir(output_dir_tmp+'/train')
         print(dataset_file_list)
@@ -60,7 +64,7 @@ def srand_data_load_save(input_list, label_list_file, pdbbind_dir, groundtruth_d
 
 
 
-        dff.read_pdbbind_to_disk_rmsd_energy_split(input_list+'test', label_list_file+'/test_sb_s'+str(i)+'67.test', pdbbind_dir+str(i)+'67', groundtruth_dir,
+        dff.read_pdbbind_to_disk_rmsd_energy_split(input_list+'test', label_list_file+'/test_sb_s'+str(i)+'.test', pdbbind_dir+str(i), groundtruth_dir,
           output_dir_tmp+'/test', resolution, tile_size)
         dataset_file_list = os.listdir(output_dir_tmp+'/test')
         print(dataset_file_list)
@@ -76,13 +80,10 @@ def srand_data_load_save(input_list, label_list_file, pdbbind_dir, groundtruth_d
 
 def split_srand_label(cv, input_list):
 
-    for i in range(3,14):
-        # f = open('/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/check_rmsd/sb_s' + str(i) + '67.test', 'r')
-        # f_train = open('/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/check_rmsd/label_train/sb_s' + str(i) + '67.test', 'w')
-        # f_test = open('/gpfs/group/mtk2/cyberstar/hzj5142/AtomNet/check_rmsd/label_test/sb_s' + str(i) + '67.test', 'w')
-        f = open('/home/mdl/hzj5142/AtomNet/cross_validation/check_rmsd/sb_s' + str(i) + '67.test', 'r')
-        f_train = open('/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/train_sb_s' + str(i) + '67.test', 'w')
-        f_test = open('/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/test_sb_s' + str(i) + '67.test', 'w')
+    for i in seeds:
+        f = open('/home/mdl/hzj5142/AtomNet/cross_validation/check_rmsd/sb_s' + str(i) + '.test', 'r')
+        f_train = open('/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/train_sb_s' + str(i) + '.test', 'w')
+        f_test = open('/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/test_sb_s' + str(i) + '.test', 'w')
 
 
 
