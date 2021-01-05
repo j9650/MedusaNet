@@ -7,3 +7,11 @@ medusa dock -p parameter -i pdbbind/[XXX]/[XXX].rec.pdb -m pdbbind/[XXX]/[XXX].l
 
 3. Each pose file (XXX.pdb files) contains several poses, run MedusaDock to calculate the RMSD for each pose to the ground truth pose.
 medusa complex rmsd -r pdbbind/[XXX]/[XXX].rec.pdb pdbbind/[XXX]/[XXX].lig.mol2 -t pdbbind_output_S[XYZ]/[XXX].pdb -align receptor -object ligand > rmsd/S[XYZ].test
+
+4. Use convert_data_to_disk.py to generate the data for training, make sure "pdbbind_list" contrains the IDs of all proteins, "pdb_list_train" & "pdb_list_test" contains the IDs of all train/test protein.
+python convert_data_to_disk.py pdbbind_rmsd_srand pdb_list
+
+The "pdbbind_rmsd_srand" folder will contain the train/test data.
+
+5. Train the model with test_atom_withenergy_res.py
+

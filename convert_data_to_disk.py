@@ -78,24 +78,24 @@ def srand_data_load_save(input_list, label_list_file, pdbbind_dir, groundtruth_d
         test_file_num = test_file_num + n
 
 
-def split_srand_label(cv, input_list):
+def split_srand_label(pdb_dir, input_list):
 
     for i in seeds:
         f = open('/home/mdl/hzj5142/AtomNet/cross_validation/check_rmsd/sb_s' + str(i) + '.test', 'r')
-        f_train = open('/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/train_sb_s' + str(i) + '.test', 'w')
-        f_test = open('/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/test_sb_s' + str(i) + '.test', 'w')
+        f_train = open('/home/mdl/hzj5142/AtomNet/cross_validation/cv/train_sb_s' + str(i) + '.test', 'w')
+        f_test = open('/home/mdl/hzj5142/AtomNet/cross_validation/cv/test_sb_s' + str(i) + '.test', 'w')
 
 
 
         rec_list = []
-        ff = open('/home/mdl/hzj5142/AtomNet/cross_validation/pdbbind_3875_list', 'r')
+        ff = open(pdb_dir, 'r')
         for line in ff:
             # rec_list.append(line.strip()+'.pdb')
             rec_list.append(line.strip())
         ff.close()
 
         rmsd_list = []
-        for j in range(3875):
+        for j in range(len(rec_list)):
             line = f.readline()
             st = line.split()
             rmsd_list.append(st)
@@ -128,17 +128,22 @@ def split_srand_label(cv, input_list):
 
 if __name__ == "__main__":
 
-    cv = int(sys.argv[1])
-    label_list_file = '/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) #+ '/train_sb_s'
-    pdbbind_dir = '/home/mdl/hzj5142/AtomNet/medusa/pdbbind_output_s'
+    pdb_dir = int(sys.argv[1])
+    # the path of the labels (rmsd)
+    label_list_file = '/home/mdl/hzj5142/AtomNet/cross_validation/cv'
+    # set the dir to the output poses
+    pdbbind_dir = '/home/mdl/hzj5142/AtomNet/medusa/pdbbind_output_S'
+    # set the dir to the pdbbind folder
     groundtruth_dir = '/home/mdl/hzj5142/AtomNet/medusa/pdbbind'
 
-    iteration = int(sys.argv[2])
-    resolution = iteration
-    output_dir = '/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/pdbbind_rmsd_srand'
-    input_list = '/home/mdl/hzj5142/AtomNet/cross_validation/cv' + str(cv) + '/pdb_list_'
-
-    split_srand_label(cv, input_list)
+    iteration = 20
+    resolution = 20
+    # output_dir = '/home/mdl/hzj5142/AtomNet/cross_validation/cv/pdbbind_rmsd_srand'
+    output_dir = sys.argv[2]
+    # input_list = '/home/mdl/hzj5142/AtomNet/cross_validation/cv/pdb_list_'
+    input_list = sys.argv[3]+'_'
+    
+    split_srand_label(pdb_dir, input_list)
     srand_data_load_save(input_list, label_list_file, pdbbind_dir, groundtruth_dir, output_dir, cv, resolution, iteration)
     # load_and_save_dataset(input_list, label_list_file, pdbbind_dir, groundtruth_dir, output_dir, resolution)
 
